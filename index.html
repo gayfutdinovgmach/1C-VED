@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #eee;
+    cursor: pointer;
+}
+
+#tab0:checked ~ #content0, #tab1:checked ~ #content1, #tab2:checked ~ #content2, #tab3:checked ~ #content3,
+#tab4:checked ~ #content4, #tab5:checked ~ #content5, #tab6:checked ~ #content6,
+#tab7:checked ~ #content7, #tab8:checked ~ #content8,#tab9:checked ~ #content9,
+#tab10:checked ~ #content10 {
+    display: block;
+}
+
+#tab0:checked + label, #tab1:checked + label, #tab2:checked + label, #tab3:checked + label,
+#tab4:checked + label, #tab5:checked + label, #tab6:checked + label,
+#tab7:checked + label, #tab8:checked + label, #tab9:checked + label,
+#tab10:checked + label {
+    background: #007bff;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+<input type="radio" name="tabs" id="tab0" checked>
+<label for="tab0">Общий обзор задач</label>
+
+<input type="radio" name="tabs" id="tab1" checked>
+<label for="tab1">Предварительный расчет ССТ</label>
+
+<input type="radio" name="tabs" id="tab2">
+<label for="tab2">Закупка</label>
+
+<input type="radio" name="tabs" id="tab3">
+<label for="tab3">Производство</label>
+
+<input type="radio" name="tabs" id="tab4">
+<label for="tab4">Отгрузка</label>
+
+<input type="radio" name="tabs" id="tab5">
+<label for="tab5">Доставка (до ТО)</label>
+
+<input type="radio" name="tabs" id="tab6">
+<label for="tab6">ТО</label>
+
+<input type="radio" name="tabs" id="tab7">
+<label for="tab7">Доставка (после ТО)</label>
+
+<input type="radio" name="tabs" id="tab8">
+<label for="tab8">Приемка наш склад</label>
+
+<input type="radio" name="tabs" id="tab9">
+<label for="tab9">Расчет ССТ</label>
+
+<input type="radio" name="tabs" id="tab10">
+<label for="tab10">Закрывающие действия</label>
+
+
+<div id="content0" class="tab-content">
+    <table border="1">
+        <tr>
+            <th>Номер заказа</th>
+            <th>Ответственный</th>
+            <th>Постановщик</th>
+            <th>Заказчик</th>
+            <th>Статус</th>
+        </tr>
+        <tr>
+            <td>ГПUT-000001</td>
+            <td>Литвинова (столбец есть только у руководителей, у исполнителей тут отражаются только те задачи, по которым они ответственные)</td>
+            <td>Круглов Андрей</td>
+            <td>Л-ПАК</td>
+            <td><label for="tab1" class="tab-link">Предварительный расчет ССТ</label></td>
+        </tr>
+        <tr>
+            <td>ГПUT-000002</td>
+            <td>Литвинова</td>
+            <td>Круглов Андрей</td>
+            <td>Л-ПАК</td>
+            <td><label for="tab6" class="tab-link">ТО</label></td>
+        </tr>
+        <tr>
+            <td>ГПUT-000003</td>
+            <td>Литвинова</td>
+            <td>Круглов Андрей</td>
+            <td>Архбум Воронеж</td>
+            <td><label for="tab4" class="tab-link">Отгрузка</label></td>
+        </tr>
+    </table>
+</div>
+
+<div id="content1" class="tab-content">
+    <table border="1">
+        <tr><th>Номер заказа</th><th>Постановщик</th><th>Заказчик</th></tr>
+        <tr><td>ГПUT-000001</td><td>Круглов Андрей</td><td>Л-ПАК</td></tr>
+        <tr><td>ГПUT-000002</td><td>Круглов Андрей</td><td>Л-ПАК</td></tr>
+        <tr><td>ГПUT-000003</td><td>Круглов Андрей</td><td>Архбум Воронеж</td></tr>
+    </table>
+</div>
+
+<div id="content2" class="tab-content">
+    <table border="1">
+        <tr><th>Country</th><th>Capital</th></tr>
+        <tr><td>Germany</td><td>Berlin</td></tr>
+    </table>
+</div>
+
+<!-- Rest of content tabs 3 to 10 are kept unchanged -->
+<div id="content3" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
+<div id="content4" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
+<div id="content5" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
+<div id="content6" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
+<div id="content7" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
+<div id="content8" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
+<div id="content9" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
+<div id="content10" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const table = document.getElementById('content1');
+        const rows = table.getElementsByTagName('tr');
+
+        for (let i = 1; i < rows.length; i++) {
+            const orderCell = rows[i].getElementsByTagName('td')[0];
+            
+            if (orderCell) {
+                const orderNumber = orderCell.textContent.trim();
+                const subPath = orderNumber.slice(2);
+                
+                const link = document.createElement('a');
+                // Added .html extension matching the physical filename
+                link.href = `./${subPath}.html`;
+                link.textContent = orderNumber;
+                
+                orderCell.textContent = '';
+                orderCell.appendChild(link);
+            }
+        }
+    });
+</script>
+</body>
+</html>

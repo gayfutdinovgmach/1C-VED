@@ -1,0 +1,209 @@
+    body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Стили вкладок (Tabs) */
+        .tabs-container {
+            margin-top: 20px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 15px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #eee;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            margin-right: 5px;
+            border-radius: 4px 4px 0 0;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .tab-btn:hover {
+            background: #ddd;
+        }
+
+        .tab-btn.active {
+            background: #fff;
+            border-bottom: 2px solid #fff;
+            margin-bottom: -2px;
+            color: #0066cc;
+        }
+
+        .tab-content {
+            display: none;
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 0 4px 4px 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Стили таблицы */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: #fff;
+            font-size: 13px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            white-space: nowrap;
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        label {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #eee;
+    cursor: pointer;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #eee;
+    cursor: pointer;
+}
+
+#tab1:checked ~ #content1, #tab2:checked ~ #content2 {
+    display: block;
+}
+
+#tab1:checked + label, #tab2:checked + label {
+    background: #007bff;
+    color: white;
+}
+
+.field-container {
+    display: grid;
+    grid-template-columns: 120px 1fr; /* Label gets 120px width, value takes the rest */
+    gap: 10px;                        /* Space between label and value */
+    margin-bottom: 8px;               /* Space between different rows */
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.field-label {
+    font-weight: bold;
+    color: #555;                      /* Slightly muted color for the label */
+}
+
+.field-value {
+    color: #333;                      /* Darker color for the actual value */
+}
+
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    font-family: Arial, sans-serif;
+}
+
+.input-label {
+    width: 150px; /* Adjust this width based on your field name length */
+    font-weight: bold;
+    background: none !important; /* Prevents inheriting your tab button background */
+    color: #333 !important;      /* Prevents inheriting your tab button text color */
+    padding: 0 !important;       /* Resets tab padding */
+    cursor: default !important;
+}
+
+.styled-input {
+    flex: 1;
+    max-width: 450px; /* Limits the field width so it doesn't span the whole page */
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Optional: Subtle gray color specifically for the placeholder text */
+.styled-input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    font-family: Arial, sans-serif;
+}
+
+.form-title {
+    width: 150px; /* Фиксированная ширина для выравнивания с прошлым полем */
+    font-weight: bold;
+    color: #333;
+}
+
+.styled-select {
+    flex: 1;
+    max-width: 450px; /* Ограничение ширины списка */
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.styled-select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Класс для скрытия элементов */
+.hidden-field {
+    display: none !important;
+}
