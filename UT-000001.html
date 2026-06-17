@@ -8,81 +8,164 @@
     <a href="./index.html">← Назад к таблице</a>
     <h1>Предварительный расчет ССТ — Заказ UT-000001</h1>
 
-    <div class="field-container">
-    <span class="field-label">Поставщик:</span>
-    <span class="field-value">Horsebridge International Commerce Co., Ltd (Подгружается автоматически вместе с запросом от снабженца.)</span>
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Поставщик:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">Horsebridge International Commerce Co., Ltd</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Подгружается автоматически вместе с запросом от снабженца.</span>
 </div>
 
-<div class="field-container">
-    <span class="field-label">Упаковка:</span>
-    <span class="field-value">Указывается снабженцем до отправки запроса (во всплывающем окне) для каждого упаковочного места: тип, габариты и кол-во. Пример 1: 1 контейнер 40HC. Пример 2: 1 ящик 20х35х40 см, 2 коробки 40х40х40см.</span>
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Адрес забора груза:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">Shishan, Foshan, Nanhai District, Foshan, Guangdong Province, China, 528225</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Подгружается автоматически из карточки поставщика вместе с запросом от снабженца.</span>
 </div>
 
-<div class="field-container">
-    <span class="field-label" >Общий вес:</span>
-    <span class="field-value">Указывается снабженцем до отправки запроса (во всплывающем окне) общий вес, хотя бы примерно, в кг. Например: 200 кг. Если известно, можно указать вес для каждого упаковочного места в разделе "Упаковка".</span>
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Адрес доставки груза:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">Промышленный Парк Сенькино, Москва, Россия</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Снабженец при отправке расчета выбирает адресом доставки либо наш склад, либо площадку заказчика. 
+        При этом у одного заказчика может быть несколько адресов, тогда он должен выбрать 1. Либо мы как-то должны ввести заказчика несколько раз, например, Архбум Воронеж, Архбум Подольск итд.</span>
 </div>
 
-<div class="field-container">
-    <!-- Left Column -->
-    <span class="field-label">Условия поставки:</span>
-    
-    <!-- Right Column -->
-    <div class="right-column">
-        <span class="field-value">Приходят от снабженца. Должна быть возможность изменить. Выбор идет из списка. Например, EXW. Если условия EXW, то к сумме фрахта добавляется сумма экспортной. Ее надо где-то в админке 1 раз прописать, она будет меняться раз лет в 5. Пусть сейчас будет равна 100 евро. Соответственно, конвертируем это значение в валюту расчета по ЦБ РФ.</span>
-        
-        <select id="payment-type" class="styled-select">
-            <option value="">(выберите условия поставки)</option>
-            <option value="EXW">EXW</option>
-            <option value="FOB">FOB</option>
-            <option value="DAP">DAP</option>
-            <option value="CIF">CIF</option>
-            <option value="FCA">FCA</option>
-            <option value="CPT">CPT</option>
-            <option value="CIP">CIP</option>
-            <option value="FAS">FAS</option>
-            <option value="CFR">CFR</option>
-            <option value="DPU">DPU</option>
-        </select>
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Упаковка:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">1 деревянный ящик 200*50*40см</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Указывается снабженцем до отправки запроса (во всплывающем окне) 
+        для каждого упаковочного места: тип, габариты и кол-во. Если известен вес брутто каждого места, можно указать тут.</span>
+</div>
+
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Общий вес брутто:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">200 кг</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Указывается снабженцем до отправки запроса (во всплывающем окне) общий вес, хотя бы примерно, в кг.</span>
+</div>
+
+<div class="shipping-terms-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Условия поставки:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <select id="shipping-terms" class="styled-select">
+                <option value="">(выберите условия поставки)</option>
+                <option value="EXW">EXW</option>
+                <option value="FOB">FOB</option>
+                <option value="DAP">DAP</option>
+                <option value="CIF">CIF</option>
+                <option value="FCA">FCA</option>
+                <option value="CPT">CPT</option>
+                <option value="CIP">CIP</option>
+                <option value="FAS">FAS</option>
+                <option value="CFR">CFR</option>
+                <option value="DPU">DPU</option>
+            </select>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">
+        Приходят от снабженца. Должна быть возможность изменить. Выбор идет из списка. Если условия EXW, то к сумме фрахта добавляется сумма экспортной. 
+        Ее надо где-то в админке 1 раз прописать, она будет меняться раз лет в 5. Пусть сейчас будет равна 100 EUR. Соответственно, конвертируем это значение в валюту расчета по ЦБ РФ.
+        Экспортная явно выходит в этом случае в отдельном поле, сумму при необходимости можно менять прямо отсюда.
+    </span>
+</div>
+
+<!-- Extra field element starts with hidden-field just like vat-row -->
+<div id="exw-export-declaration" class="shipping-terms-container hidden-field" style="margin-top: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133;">Экспортная декларация:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">100 EUR</span>
+        </div>
     </div>
 </div>
 
-
-<div class="field-container">
-    <span class="field-label">Последняя дата расчета:</span>
-    <span class="field-value">Генерируется когда ответственное лицо нажимает кнопку "Рассчитать". Формат дд.мм.гггг, например 11.06.2026. Это показывает, на какую дату в расчете была ставка ЦБ.</span>
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Последняя дата расчета:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <!-- Added id="calc-date" -->
+            <span id="calc-date" class="supplier-name" style="font-weight: bold; color: #303133;">11.06.2026</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Генерируется когда ответственное лицо нажимает кнопку "Рассчитать". Формат дд.мм.гггг. Это показывает, на какую дату в расчете была ставка ЦБ.</span>
 </div>
 
-<div class="field-container">
-    <span class="field-label">Валюта расчета:</span>
-    <span class="field-value">Приходит из запроса снабженца. Например, CNY</span>
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Валюта расчета:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">CNY</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Приходит из запроса снабженца.</span>
 </div>
 
-<div class="field-container">
-    <span class="field-label">Рублей за 1 [Указать факт валюту, например, CNY]</span>
-    <span class="field-value">Курс ЦБ РФ на последнюю дату расчета.</span>
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Курс ЦБ 1 валюты:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <!-- Added id="cbr-rate" -->
+            <span id="cbr-rate" class="supplier-name" style="font-weight: bold; color: #303133;">10,5825</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Курс ЦБ РФ на последнюю дату расчета. Берет значение даты из "Последняя дата расчета", 
+        берет значение валюты из "Валюта расчета", используя эти данные подгружает актуальный курс ЦБ РФ. Пометка себе: можно в макете тоже настроить.</span>
 </div>
 
-<div class="input-container">
-    <label for="manual-input" class="input-label">Фрахт (часть в рублях)</label>
-    <input type="text" id="manual-input" class="styled-input" placeholder="ОЛ вносит знач-е вручную">
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Фрахт (часть в рублях):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="Введите значение">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">ОЛ вносит сюда все рублевые суммы по стоимости перевозки.</span>
 </div>
 
-<div class="input-container">
-    <label for="manual-input" class="input-label">Фрахт (часть в валюте)</label>
-    <input type="text" id="manual-input" class="styled-input" placeholder="ОЛ вносит знач-е вручную">
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Фрахт (часть в валюте):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="Введите значение">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">ОЛ вносит сюда все валютные суммы по стоимости перевозки.</span>
 </div>
 
 <div class="form-row">
     <span class="form-title">Тип оплаты</span>
-    <select id="payment-type" class="styled-select">
-        <!-- Этот вариант теперь доступен для выбора в любой момент -->
-        <option value="">(выберите тип оплаты)</option>
-        <option value="agent">Агент (А7)</option>
-        <option value="direct">Прямая</option>
-        <option value="kazakhstan">Казахстан</option>
-        <option value="dalian">Далянь (Ирина)</option>
-    </select>
+    
+        <select id="payment-type" class="styled-select">
+            <!-- Этот вариант теперь доступен для выбора в любой момент -->
+            <option value="">(выберите тип оплаты)</option>
+            <option value="agent">Агент (А7)</option>
+            <option value="direct">Прямая</option>
+            <option value="kazakhstan">Казахстан</option>
+            <option value="dalian">Далянь (Ирина)</option>
+        </select>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Если тип оплаты Казахстан, будет 2 НДС: российский и казахский в расчете ССТ; также будет наценка 1% на ССТ и фикс 2500 руб (может измениться со временем). 
+            Если вариант Далянь, то должно появиться еще одно поле либо справа либо снизу, где надо выбрать будет ли разница в НДС в Китае, тут будет 5% комиссия + 4% банк комиссия и 2% курс разница, все начисляется на сумму закупа.
+            Если это Агент (А7) - то комиссия агента будет 1%, при этом если 1% * стоимость закупки < 22000 руб, будет 22 000 руб.
+            Если это Прямая, то нужно будет добавить следующие банковские комиссии: 3% банковская комиссия и 3% курсовая разница, все от суммы закупа.
+    </span>
 </div>
 
 <div id="vat-row" class="form-row hidden-field">
@@ -94,11 +177,76 @@
     </select>
 </div>
 
+<div class="field-container" style="display: flex; flex-direction: column; gap: 12px;">
+    <div style="display: flex; flex-direction: row; align-items: center; gap: 24px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Страховка:</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="cbr-rate-insurance" class="supplier-name" style="font-weight: bold; color: #303133;">0,3%</span>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Сумма по страховке:</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="cbr-rate-amount" class="supplier-name" style="font-weight: bold; color: #303133;">0,3%*10000(сумма закупа)=30</span>
+            </div>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Значение 0,3% присутствует по умолчанию. Можно менять вручную. Со временем может потребоваться изменить значение по умолчанию</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Длительность поставки (календарных дней):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="Введите значение">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">ОЛ вносит сюда время, которое займет доставка до адреса доставки, 
+        включая время (примерное) на ТО, разгрузки в портах, подготовку документов итп.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подушка безопасности доставка (%):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="Введите значение">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Если остается не заполненной - это значит = 0%. Единица измерения - %. Процент подушки добавляется к общей сумме фрахта.
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подушка безопасности сертификация (%):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="Введите значение">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Если остается не заполненной - это значит = 0%. Единица измерения - %. Процент подушки добавляется к общей сумме за сертификацию.
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Стоимость таможенного оформления, руб:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="Введите значение">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">ОЛ указывает стоимость ТО в рублях.
+    </span>
+</div>
+
 <input type="radio" name="tabs" id="tab1" checked>
 <label for="tab1">Проверка Техописания</label>
 
 <input type="radio" name="tabs" id="tab2">
-<label for="tab2">Предварительный расчет ССТ</label>
+<label for="tab2">Предварительный расчет ССТ в валюте</label>
+
+<input type="radio" name="tabs" id="tab3">
+<label for="tab3">Предварительный расчет ССТ в рублях</label>
 
 <div id="content1" class="tab-content", style="overflow-x: auto;">
     <table border="1">
@@ -134,8 +282,8 @@
                 <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки).</td>
                 <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки).</td>
                 <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки).</td>
-                <td>В идеале подгружается с какого-то сайта, например https://www.alta.ru/ далее множается на сумму</td>
-                <td>В идеале подгружается с какого-то сайта, например https://www.alta.ru/</td>
+                <td>Указывается специалистом по ВЭД + можно подумать о подгрузке из файла (можно потом)</td>
+                <td>По умолчанию можно ставить 22%</td>
                 <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки).</td>
             </tr>
             <tr>
@@ -182,62 +330,198 @@
         <tr>
                 <th>Внутренний номер</th>
                 <th>Название русский</th>
+                <th>Предварительная пошлина %</th>
                 <th>Пошлина %</th>
-                <th>Пошлина Сумма</th>
+                <th>Пошлина Сумма, вал</th>
                 <th>НДС %</th>
-                <th>НДС сумма</th>
-                <th>Сертификация сумма</th>
-                <th>Таможенные сборы</th>
+                <th>НДС сумма, вал</th>
+                <th>Предварительная Сертификация сумма, руб</th>
+                <th>Сертификация сумма, руб</th>
+                <th>Таможенные сборы, вал</th>
                 <th>К-во</th>
                 <th>Ед. Изм</th>
-                <th>Стоимость за 1 ед</th>
-                <th>Сумма</th>
+                <th>Стоимость за 1 ед, вал</th>
+                <th>Сумма закуп, вал</th>
+                <th>Тамож. ст-ть, сумма, вал</th>
+                <th>ССТ сумма</th>
             </tr>
             <tr>
                 <td>Подгружается автоматически из карточки номенклатуры.</td>
                 <td>Подгружается автоматически из карточки номенклатуры.</td>
-                <td>В идеале подгружается с какого-то сайта, например https://www.alta.ru/ далее множается на сумму</td>
-                <td>Указать формулу расчета/</td>
-                <td>В идеале подгружается с какого-то сайта, например https://www.alta.ru/</td>
-                <td>Указать формулу расчета</td>
+                <td>Подгружается только если в товаре нет фактической пошлины. Если в товаре нет и предварительной пошлины, то пустое место. Сюда ОЛ внесет предварительную пошлину и 
+                    далее она должна сохранится в карточку товара в поле "предварительная пошлина". При расчете суммы пошлины система сначала всегда проверяет наличие фактической пошлины и только потом
+                    смотрит наличие предварительной. Также ОБЯЗАТЕЛЬНО надо сделать обязательным явно прописывать даже нулевую пошлину. Тк система должна отличать 0 и пустую (незаполненную) ячейки для выбора.</td>
+                <td>Указывается специалистом по ВЭД + можно подумать о подгрузке из файла (можно потом)</td>
+                <td>Таможенная стоимость товара * Пошлина % (если указана) ИЛИ Предварительная пошлина (если пошлина % пустое место)/</td>
+                <td>По умолчанию можно ставить 22%</td>
+                <td>= ("Таможенная стоимость, сумма" (за эту позицию) + "Пошлина Сумма" + ("Стоимость таможенного оформления, руб" + "Сертификация сумма, руб")/"Курс ЦБ 1 валюты"*"Сумма закуп" (по этой позиции)/"Сумма закуп" общая (все поставки)) 
+                    * 22% (текущая ставка НДС) ***Стоимость ТО по факту не должна сюда входить, но мы добавим. Должен еще быть Акциз, но вряд ли когда либо у нас будет хоть 1 подакцизный товар, 
+                    не вижу смысла плодить пустые столбцы для заполнения.
+                </td>
+                <td>См предварительная пошлина, логика та же</td>
                 <td>Заполняется специалистом по ВЭД вручную.</td>
-                <td>Расчет производится на весь заказ от таможенной стоимости товара. От х до у стоимость а рублей, итд, идут промежутки денег на них своя стоимость сборов. Эта сумма изначально в рублях!!! Поскольку мы считаем ССТ в валюте, надо будет переводить по ЦБ на дату расчета.</td>
+                <td>"Под капотом" расчет производится на весь заказ по следующей формуле:"Таможенная стоиомсть, сумма" (всех позиций этого столбца) * "Курс ЦБ 1 валюты" (для перевода в рубли).
+                    Далее полученная цифра сравнивается с диапазонами сумм, для каждого из которых Фетеральная Таможенная Служба прописала свою сумму сборов***. Получившийся результат
+                    умножается на % который составляет сумма закупа этой позиции от общей суммы закупа заказа и делится на "Курс ЦБ 1 валюты".
+                    *** Таблицу с диапазоноами я предоставлю отдельно.</td>
                 <td>Подгружается автоматически из запроса от снабженца.</td>
                 <td>Подгружается автоматически вместе с запросом от снабженца из карточки номенклатуры.</td>
                 <td>Подгружается автоматически вместе с запросом от снабженца из карточки номенклатуры.</td>
                 <td>Высчитывается автоматически по формуле: "Стоимость за 1 ед" * "К-во"</td>
+                <td>Высчитывается автоматически по формуле: "Сумма закуп" по данной позиции + ("Сумма закуп" по данной позиции/"Сумма закуп" общая)*(фрахт сумма части в руб и в валюте, конвертированная в валюту * (1 +% подушки безопасности)
+                    +сумма по страховке + комиссия агент + банковсике комиссии + курсовая разница + экспортная) ***Корректно было бы считать от % по весу, но мы его сразу не знаем, а стоимости знаем сразу точно,
+                    поэтому идем от % стоимости.
+                </td>
+                <td>Таможенная стоимость + НДС + Пошлина + Тамож. Сборы + Сумма закуп, вал / сумма всех позиций по Сумма закуп, вал * (Стоимость таможенного оформления, руб / Курс ЦБ 1 валюты + Сертификация сумма, руб
+                    /Курс ЦБ 1 валюты * (1 + подушка безопасности сертификация))</td>
+                
 
             </tr>
             <tr>
                 <td>S9MR34699</td>
                 <td>Вал BHS (157896400)/AF-P</td>
+                <td>Допустим, ранее вносилась предварительная пошлина 5%.</td>
                 <td>Для кода 8439 99 000 0 это: 0%</td>
-                <td>пошлина 0%*сумма = 0/</td>
-                <td>Для кода 8439 99 000 0 это: 22%. </td>
-                <td>Указать формулу расчета</td>
+                <td>пошлина 0% * 57 588.76 CNY = 0 (предварительная пошлина не берется, тк помимо нее указана фактическая)</td>
+                <td>Для кода 8439 99 000 0 это: 22%.</td>
+                <td>(57 618.77 + 0 + (30 000 + 0)/10.5825 * 10 000/10 000) *22%</td>
+                <td>Допустим, предваритльено ранее указывали 10 000 руб</td>
                 <td>0</td>
-                <td>Таможенные сборы</td>
+                <td>Таможенная стоимость в рублях = 57 618.77 * 10.5825 = 609 750.63 руб. Это попадает в промежуток от 450 000.01 до 1 200 000руб, для которого таможенные сборы =
+                    4 962 руб. Далее 4 962 * 10 000/10 000 / 10.5825
+                </td>
                 <td>1</td>
                 <td>шт</td>
                 <td>10 000</td>
                 <td>= 1 * 10 000</td>
+                <td>= 10 000 + (10 000 / 10 000)*((50 000 руб/10.5825 + 40 000)*(1+0% (подушка)) + 30 + 22 000 / 10.5825 (допустим, платим через
+                    Агента А7, для 10 тыс юаней комиссия по нашим правилам (сам Тип оплаты) составит 22 000 руб, их конвертируем в юани) + 0 (банк комиссии) + 0 (курс разница) + 100*83.0816 
+                    (курс евро на дату расчета - 11.06.2026, евро по ЦБ переводим в рубли и далее рубли по ЦБ в юани)/10.5825)</td>
+                <td>= 57 618.77 + 13 299.80 + 0 + 468.89 + 10 000 / 10 000 * (30 000 / 10.5825 + 0 / 10.5825 * (1 + 0))</td>
             </tr>
             <tr>
                 <td>S9MR34699</td>
                 <td>Вал BHS (157896400)/AF-P</td>
+                <td>5%</td>
                 <td>0%</td>
                 <td>0</td>
                 <td>22%. </td>
-                <td>Указать формулу расчета</td>
-                <td>0</td>
-                <td>Таможенные сборы</td>
+                <td>13 299.80</td>
+                <td>10 000</td>
+                <td>0 (это будет иметь приоритет, но только если 0 будет стоять явно)</td>
+                <td>468.89</td>
                 <td>1</td>
                 <td>шт</td>
                 <td>10 000</td>
                 <td>10 000</td>
+                <td>= 10 000 + 1*((4 724.78 + 40 000) * 1 + 30 + 2 078.90 + 0 + 0 + 785.08) = 57 618.77</td>
+                <td>= 70 918.57 + 468.89 + 1 * (2 834.87 + 0 * 1)  = 74 222.33</td>
             </tr>
     </table>
+
+    <!-- Buttons -->
+<div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+    
+    <button type="button" id="calculate-btn" class="form-btn primary-btn">
+        Произвести расчет
+    </button>
+    
+    <button type="button" id="send-btn" class="form-btn secondary-btn">
+        Отправить расчет
+    </button>
+
 </div>
+</div>
+
+<div id="content3" class="tab-content">
+        <table border="1">
+        <tr>
+                <th>Внутренний номер</th>
+                <th>Название русский</th>
+                <th>Предварительная пошлина %</th>
+                <th>Пошлина %</th>
+                <th>Пошлина Сумма, руб</th>
+                <th>НДС %</th>
+                <th>НДС сумма, руб</th>
+                <th>Предварит. Серт. сумма, руб</th>
+                <th>Серт. сумма, руб</th>
+                <th>Тамож. сборы, руб</th>
+                <th>К-во</th>
+                <th>Ед. Изм</th>
+                <th>Стоимость за 1 ед, руб</th>
+                <th>Сумма закуп, руб</th>
+                <th>Тамож. ст-ть, сумма, руб</th>
+                <th>ССТ сумма</th>
+            </tr>
+            <tr>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Расчет делается следующим образом: таможенная стоимость в рублях сравнивается с диапазонами таможенных сборов. Отражается тот, диапазон, в который она попала.</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+
+            </tr>
+            <tr>
+                <td>S9MR34699</td>
+                <td>Вал BHS (157896400)/AF-P</td>
+                <td>5%.</td>
+                <td>0%</td>
+                <td>0 * 10.5825</td>
+                <td>22%.</td>
+                <td>13 299.80 * 10.5825</td>
+                <td>10 000 * 10.5825</td>
+                <td>0 * 10.5825</td>
+                <td>Таможенная стоимость в рублях = 609 750.63 руб. Это попадает в промежуток от 450 000.01 до 1 200 000руб, для которого таможенные сборы = 4 962 руб.</td>
+                <td>1</td>
+                <td>шт</td>
+                <td>=10 000 * 10.5825</td>
+                <td>= 10 000 * 10.5825</td>
+                <td>= 57 618.77 * 10.5825</td>
+                <td>=74 222.33 * 10.5825</td>
+            </tr>
+            <tr>
+                <td>S9MR34699</td>
+                <td>Вал BHS (157896400)/AF-P</td>
+                <td>5%</td>
+                <td>0%</td>
+                <td>0</td>
+                <td>22%. </td>
+                <td>140 745.13</td>
+                <td>10 000</td>
+                <td>0</td>
+                <td>4 962</td>
+                <td>1</td>
+                <td>шт</td>
+                <td>105 825</td>
+                <td>105 825</td>
+                <td>609 750.63</td>
+                <td>785 457.81</td>
+            </tr>
+    </table>
+        <!-- Buttons -->
+<div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+    
+    <button type="button" id="calculate-btn" class="form-btn primary-btn">
+        Произвести расчет
+    </button>
+    
+    <button type="button" id="send-btn" class="form-btn secondary-btn">
+        Отправить расчет
+    </button>
+</div>
+
+
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -258,6 +542,21 @@
 
 </script>
 
+<!--Show export declaration price if EXW terms are selected  -->
+<script>
+    // Set up the listener using classList management to respect your project's hidden-field class
+    document.getElementById('shipping-terms').addEventListener('change', function() {
+        const extraField = document.getElementById('exw-export-declaration');
+        
+        if (this.value === 'EXW') {
+            // Remove the hidden class to make it pop into view
+            extraField.classList.remove('hidden-field');
+        } else {
+            // Put the hidden class back if anything else is selected
+            extraField.classList.add('hidden-field');
+        }
+    });
+</script>
 
 </body>
 </html>

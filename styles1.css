@@ -1,108 +1,80 @@
-    body { 
-            font-family: Arial, sans-serif; 
-            padding: 20px; 
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
+/* ==========================================================================
+   1. GENERAL STYLES & BASE RESETS
+   ========================================================================== */
+body { 
+    font-family: Arial, sans-serif; 
+    padding: 20px; 
+    background-color: #f9f9f9;
+    color: #333;
+}
 
-        /* Стили вкладок (Tabs) */
-        .tabs-container {
-            margin-top: 20px;
-        }
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
 
-        .tab-buttons {
-            display: flex;
-            border-bottom: 2px solid #ccc;
-            margin-bottom: 15px;
-        }
+a:hover {
+    text-decoration: underline;
+}
 
-        .tab-btn {
-            padding: 10px 20px;
-            cursor: pointer;
-            background: #eee;
-            border: 1px solid #ccc;
-            border-bottom: none;
-            margin-right: 5px;
-            border-radius: 4px 4px 0 0;
-            font-size: 14px;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
+/* Helper class to hide elements */
+.hidden-field {
+    display: none !important;
+}
 
-        .tab-btn:hover {
-            background: #ddd;
-        }
 
-        .tab-btn.active {
-            background: #fff;
-            border-bottom: 2px solid #fff;
-            margin-bottom: -2px;
-            color: #0066cc;
-        }
+/* ==========================================================================
+   2. TABS COMPONENT (JS & RADIO-BASED)
+   ========================================================================== */
+/* JS-based Tabs Container */
+.tabs-container {
+    margin-top: 20px;
+}
 
-        .tab-content {
-            display: none;
-            background: #fff;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 0 4px 4px 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+.tab-buttons {
+    display: flex;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 15px;
+}
 
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Стили таблицы */
-        .table-wrapper {
-            overflow-x: auto;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            background: #fff;
-            font-size: 13px;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border: 1px solid #ccc;
-        }
-
-        th {
-            white-space: nowrap;
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-
-        tr:nth-child(even) {
-            background-color: #fafafa;
-        }
-
-        label {
-    display: inline-block;
+.tab-btn {
     padding: 10px 20px;
-    background: #eee;
     cursor: pointer;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    margin-right: 5px;
+    border-radius: 4px 4px 0 0;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.tab-btn:hover {
+    background: #ddd;
+}
+
+.tab-btn.active {
+    background: #fff;
+    border-bottom: 2px solid #fff;
+    margin-bottom: -2px;
+    color: #0066cc;
 }
 
 .tab-content {
     display: none;
+    background: #fff;
     padding: 20px;
     border: 1px solid #ccc;
+    border-radius: 0 4px 4px 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+.tab-content.active {
+    display: block;
+}
+
+/* Pure CSS Radio-based Tabs */
 input[type="radio"] {
     display: none;
 }
@@ -114,34 +86,95 @@ label {
     cursor: pointer;
 }
 
-#tab1:checked ~ #content1, #tab2:checked ~ #content2 {
+#tab1:checked ~ #content1, 
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3 {
     display: block;
 }
 
-#tab1:checked + label, #tab2:checked + label {
+#tab1:checked + label, 
+#tab2:checked + label,
+#tab3:checked + label {
     background: #007bff;
     color: white;
 }
 
+
+/* ==========================================================================
+   3. TABLES
+   ========================================================================== */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+    font-size: 13px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+th {
+    white-space: nowrap;
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+
+/* ==========================================================================
+   4. DATA FIELDS & SUPPLIER BADGES
+   ========================================================================== */
 .field-container {
-    display: grid;
-    grid-template-columns: 120px 1fr; /* Label gets 120px width, value takes the rest */
-    gap: 10px;                        /* Space between label and value */
-    margin-bottom: 8px;               /* Space between different rows */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
     font-size: 14px;
     font-family: Arial, sans-serif;
 }
 
 .field-label {
-    font-weight: bold;
-    color: #555;                      /* Slightly muted color for the label */
+    font-weight: 500;
+    color: #606266;
 }
 
 .field-value {
-    color: #333;                      /* Darker color for the actual value */
+    color: #909399;
+    font-size: 14px;
+}
+
+.supplier-badge {
+    margin-top: 8px;
+    padding: 6px 12px;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    background-color: #f5f7fa;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.supplier-name {
+    font-weight: bold;
+    color: #303133;
+    font-size: 14px;
 }
 
 
+/* ==========================================================================
+   5. FORM INPUTS & SELECT DROPDOWNS
+   ========================================================================== */
+/* Generic Form Rows */
+.form-row, 
 .input-container {
     display: flex;
     align-items: center;
@@ -149,47 +182,36 @@ label {
     font-family: Arial, sans-serif;
 }
 
+/* Form Labels */
+.form-title, 
 .input-label {
-    width: 150px; /* Adjust this width based on your field name length */
+    width: 150px;
     font-weight: bold;
-    background: none !important; /* Prevents inheriting your tab button background */
-    color: #333 !important;      /* Prevents inheriting your tab button text color */
-    padding: 0 !important;       /* Resets tab padding */
+    color: #333 !important;
+    background: none !important;
+    padding: 0 !important;
     cursor: default !important;
 }
 
+/* Text Inputs */
 .styled-input {
     flex: 1;
-    max-width: 450px; /* Limits the field width so it doesn't span the whole page */
+    max-width: 450px;
     padding: 8px 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
 }
 
-/* Optional: Subtle gray color specifically for the placeholder text */
 .styled-input::placeholder {
     color: #888;
     font-style: italic;
 }
 
-
-.form-row {
-    display: flex;
-    align-items: center;
-    margin: 15px 0;
-    font-family: Arial, sans-serif;
-}
-
-.form-title {
-    width: 150px; /* Фиксированная ширина для выравнивания с прошлым полем */
-    font-weight: bold;
-    color: #333;
-}
-
+/* Select Dropdowns */
 .styled-select {
     flex: 1;
-    max-width: 450px; /* Ограничение ширины списка */
+    max-width: 450px;
     padding: 8px 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -203,7 +225,45 @@ label {
     outline: none;
 }
 
-/* Класс для скрытия элементов */
-.hidden-field {
-    display: none !important;
-}
+
+/* BUTTON STYLES */
+/* Shared Base Button Styling */
+    .form-btn {
+        font-size: 14px;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-btn:active {
+        transform: translateY(1px); /* Pressed effect */
+    }
+
+    /* Primary Calculate Button Styles (Dark Theme) */
+    .primary-btn {
+        background-color: #303133;
+        color: #ffffff;
+        border: 1px solid #303133;
+    }
+
+    .primary-btn:hover {
+        background-color: #4a4c50;
+        border-color: #4a4c50;
+    }
+
+    /* Secondary Send Button Styles (Accent / Green Theme) */
+    .secondary-btn {
+        background-color: #67c23a; /* Standard success accent green */
+        color: #ffffff;
+        border: 1px solid #67c23a;
+    }
+
+    .secondary-btn:hover {
+        background-color: #85ce61;
+        border-color: #85ce61;
+    }
