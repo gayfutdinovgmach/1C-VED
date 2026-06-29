@@ -1,15 +1,777 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Заказ UT-000003</title>
-    <style>body { font-family: Arial, sans-serif; padding: 20px; }</style>
+    <link rel="stylesheet" href="styles1.css">
+
 </head>
 <body>
     <a href="./index.html">← Назад к таблице</a>
-    <h1>Макет ERP — Заказ UT-000003</h1>
-    <table border="1" cellpadding="10">
-        <tr><th>Материал</th><th>Количество</th><th>Статус</th></tr>
-        <tr><td>Гофрокартон П-32</td><td>5,000 кв.м</td><td>Производство</td></tr>
+    <h1>Предварительный расчет ССТ — Заказ UT-000003</h1>
+
+<p>СЦЕНАРИЙ 3: ОПЛАТА ЧЕРЕЗ Казахстан с постоплатой от заказчика. Снабженец отправил запрос и специалист по ВЭД в процессе обработки внес все необходимые данные для расчета ССТ, после чего отправил снабженцу себестоимость в валюте, нажав на кнопку "Отправить расчет" во вкладке "Предварительный расчет ССТ в валюте".
+    В процессе расчета специалист по ВЭД установил, что стоимость доставки (фрахта) составляет 32 000 руб + 2 500 EUR, стоимость таможенного оформления стандартна (30 000 руб за ДТ + 1000 руб за каждый доп лист), 
+    тип оплаты будет через Казахстан (покупка в евро). Вес - 200кг, Упаковка - 1 деревянный ящик 200*50*40см. Условия поставки - EXW.
+    Вот, что пришло от снабженца:
+S1MR0040617	Ролик   EMBA 175/215/245/(180115)	20	шт	150	3 000,00;
+S2MR0040347	Ремень EMBA 215/(178559)	4	шт	500	2 000,00;
+S2MR0040355	Ремень EMBA 215/(204999)	4	шт	400	1 600,00;
+S4MR0040460	Инвертор EMBA 215/(318923)	1	шт	2000	2 000,00;
+S4MR0040479	Модуль EMBA 215/(317486)	1	шт	3000	3 000,00;
+S9MR0040101	Фотодатчик ИК-сушки EMBA 245/(318903)	1	шт	700	700,00;
+S9MR0040146	Гайка EMBA 175/(200888)	30	шт	10	300,00;
+S9MR0040147	Цапфа EMBA 175/(209475)	10	шт	25	250,00;
+S9MR0040216	Тарелка пружины EMBA 175/215/(204385)	2	шт	14	28,00;
+S9MR0040350	Эксцентрик EMBA 170/(178902)	2	шт	100	200,00;
+S9MR0040435	Пневматический редуктор  EMBA 245/(316935)	1	шт	2000	2 000,00.
+</p>  
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Поставщик:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">EMBA Machinery AB</span>
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Адрес забора груза:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">Orebro</span>
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Адрес доставки груза:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">Промышленный Парк Сенькино, Москва, Россия</span>
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Упаковка:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">1 деревянный ящик 200*50*40см</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Общий вес брутто:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">200 кг</span>
+        </div>
+    </div>
+</div>
+
+<div class="shipping-terms-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Условия поставки:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <select id="shipping-terms" class="styled-select">
+                <option value="EXW">EXW</option>
+            </select>
+        </div>
+    </div>
+
+</div>
+
+<!-- Extra field element starts with hidden-field just like vat-row -->
+<div id="exw-export-declaration" class="shipping-terms-container hidden-field" style="margin-top: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133;">Экспортная декларация:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">100 EUR</span>
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Последняя дата расчета:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <!-- Added id="calc-date" -->
+            <span id="calc-date" class="supplier-name" style="font-weight: bold; color: #303133;">11.06.2026</span>
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Валюта расчета:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">EUR</span>
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Курс ЦБ 1 валюты:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <!-- Added id="cbr-rate" -->
+            <span id="cbr-rate" class="supplier-name" style="font-weight: bold; color: #303133;">83,0816</span>
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Фрахт (часть в рублях):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="32 000">
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Фрахт (часть в валюте):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="2 500">
+        </div>
+    </div>
+</div>
+
+<div class="form-row">
+    <span class="form-title">Тип оплаты</span>
+    
+        <select id="payment-type" class="styled-select">
+            <option value="dalian">Казахстан</option>
+        </select>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 12px;">
+    <div style="display: flex; flex-direction: row; align-items: center; gap: 24px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Страховка:</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="cbr-rate-insurance" class="supplier-name" style="font-weight: bold; color: #303133;">0,3%</span>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Сумма по страховке:</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="cbr-rate-amount" class="supplier-name" style="font-weight: bold; color: #303133;">0,3%*15 078=45,24</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Длительность поставки (календарных дней):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="60">
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подушка безопасности доставка (%):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="10%">
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подушка безопасности сертификация (%):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="10%">
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Стоимость таможенного оформления, руб:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="34 000">
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Дней постоплаты с заказчиком:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">30</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Это выводить не нужно, просто отмечаю, что это значение будет использовано в расчетах для стоимости использования средств.
+        Оно должно смотреть условия оплаты с заказчиком, ЕСЛИ постоплата, смотреть, сколько календарных дней постоплаты с заказчиком и фиксировать это значение.</span>
+</div>
+
+
+<input type="radio" name="tabs" id="tab2">
+<label for="tab2">Предварительный расчет ССТ в валюте</label>
+
+<input type="radio" name="tabs" id="tab3">
+<label for="tab3">Предварительный расчет ССТ в рублях</label>
+
+<div id="content2" class="tab-content table-wrapper">
+        <table border="1">
+        <tr>
+                <th>Внутренний номер</th>
+                <th>Название русский</th>
+                <th>К-во</th>
+                <th>Ед. Изм</th>
+                <th>Стоимость за 1 ед, вал</th>
+                <th>Сумма поз в КП, вал (скрыт)</th>
+                <th>% позиции (скрыт)</th>
+                <th>Агентские (скрыт)</th>
+                <th>НДС Китай 3% (скрыт)</th>
+                <th>Сумма закуп, вал</th>
+                <th>Банковские расходы (скрыт)</th>
+                <th>Конвертация (скрыт)</th>
+                <th>Таможенная стоимость, сумма, вал (скрыт)</th>
+                <th>Предварительная пошлина %</th>
+                <th>Пошлина %</th>
+                <th>Пошлина выбор (скрыт)</th>
+                <th>Пошлина сумма, вал</th>
+                <th>НДС РФ, %</th>
+                <th>НДС РФ, сумма, вал</th>
+                <th>НДС КЗ, %</th>
+                <th>НДС КЗ, сумма, вал</th>
+                <th>Таможенные сборы, вал</th>
+                <th>Предварительная Сертификация сумма, руб</th>
+                <th>Сертификация сумма, руб</th>
+                <th>Сертификация выбор, вал (скрыт)</th>
+                <th>Фикс расходы КЗ, вал (скрыт)</th>
+                <th>Комиссия КЗ, вал (скрыт)</th>
+                <th>ССТ сумма (скрыт), вал</th>
+                <th>Использование средств сумма, вал (скрыт)</th>
+                <th>ССТ финал, вал</th>
+            </tr>
+        <tr>
+                <td>S1MR0040617</td>
+                <td>Ролик   EMBA 175/215/245/(180115)</td>
+                <td>20</td>
+                <td>шт</td>
+                <td>150,00</td>
+                <td>3 000,00</td>
+                <td>19,90%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3 000,00</td>
+                <td>60,00</td>
+                <td>30</td>
+                <td>3 660,35</td>
+                <td>5%</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>0</td>
+                <td>22%</td>
+                <td>987,67</td>
+                <td>16%</td>
+                <td>625,20</td>
+                <td>32,43</td>
+                <td>10 000</td>
+                <td>0</td>
+                <td>0</td>
+                <td>5,987047073</td>
+                <td>37,30453612</td>
+                <td>5 520,36</td>
+                <td>193,97</td>
+                <td>5 714,33</td>
+        </tr>
+        <tr>
+                <td>S2MR0040347</td>
+                <td>Ремень EMBA 215/(178559)</td>
+                <td>4</td>
+                <td>шт</td>
+                <td>500,00</td>
+                <td>2 000</td>
+                <td>13,26%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2 000,00</td>
+                <td>40,00</td>
+                <td>20</td>
+                <td>2 440,23</td>
+                <td>7%</td>
+                <td></td>
+                <td>7%</td>
+                <td>170,8163403</td>
+                <td>22%</td>
+                <td>702,10</td>
+                <td>16%</td>
+                <td>444,40</td>
+                <td>21,62</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+                <td>3,991364715</td>
+                <td>26,57785415</td>
+                <td>3 924,02</td>
+                <td>137,88</td>
+                <td>4 061,90</td>
+        </tr>
+        <tr>
+                <td>S2MR0040355</td>
+                <td>Ремень EMBA 215/(204999)</td>
+                <td>4</td>
+                <td>шт</td>
+                <td>400</td>
+                <td>1600</td>
+                <td>10,61%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1 600,00</td>
+                <td>32,00</td>
+                <td>16</td>
+                <td>1 952,19</td>
+                <td>5%</td>
+                <td></td>
+                <td>5%</td>
+                <td>97,60933732</td>
+                <td>22%</td>
+                <td>551,70</td>
+                <td>16%</td>
+                <td>349,21</td>
+                <td>17,30</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+                <td>3,193091772</td>
+                <td>20,87184597</td>
+                <td>3 083,50</td>
+                <td>108,34</td>
+                <td>3 191,84</td>
+        </tr>
+         <tr>
+                <td>S4MR0040460</td>
+                <td>Инвертор EMBA 215/(318923)</td>
+                <td>1</td>
+                <td>шт</td>
+                <td>2 000</td>
+                <td>2 000</td>
+                <td>13,26%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2 000</td>
+                <td>40</td>
+                <td>20</td>
+                <td>2 440,23</td>
+                <td>2%</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>0</td>
+                <td>22%</td>
+                <td>658,45</td>
+                <td>16%</td>
+                <td>416,80</td>
+                <td>21,62</td>
+                <td>10 000</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3,991364715</td>
+                <td>24,86969074</td>
+                <td>3 680,24</td>
+                <td>129,31</td>
+                <td>3 809,55</td>
+         </tr>
+        <tr>
+                <td>S4MR0040479</td>
+                <td>Модуль EMBA 215/(317486)</td>
+                <td>1</td>
+                <td>шт</td>
+                <td>3 000,00</td>
+                <td>3 000,00</td>
+                <td>19,90%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3 000,00</td>
+                <td>60</td>
+                <td>30</td>
+                <td>3 660,35</td>
+                <td>7%</td>
+                <td></td>
+                <td>7%</td>
+                <td>256,2245105</td>
+                <td>22%</td>
+                <td>1 053,15</td>
+                <td>16%</td>
+                <td>666,61</td>
+                <td>32,43</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+                <td>5,99</td>
+                <td>39,86678122</td>
+                <td>5 886,03</td>
+                <td>206,82</td>
+                <td>6 092,85</td>
+        </tr>
+                <tr>
+                <td>S9MR0040101</td>
+                <td>Фотодатчик ИК-сушки EMBA 245/(318903)</td>
+                <td>1</td>
+                <td>шт</td>
+                <td>700,00</td>
+                <td>700,00</td>
+                <td>4,64%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>700,00</td>
+                <td>14</td>
+                <td>7</td>
+                <td>854,08</td>
+                <td>7%</td>
+                <td></td>
+                <td>7%</td>
+                <td>59,78571911</td>
+                <td>22%</td>
+                <td>279,57</td>
+                <td>16%</td>
+                <td>176,94</td>
+                <td>7,57</td>
+                <td>10000</td>
+                <td></td>
+                <td>132,40</td>
+                <td>1,40</td>
+                <td>10,62624849</td>
+                <td>1 562,36</td>
+                <td>54,90</td>
+                <td>1 617,26</td>
+        </tr>
+                <tr>
+                <td>S9MR0040146</td>
+                <td>Гайка EMBA 175/(200888)</td>
+                <td>30</td>
+                <td>шт</td>
+                <td>10,00</td>
+                <td>300,00</td>
+                <td>1,99%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>300,00</td>
+                <td>6</td>
+                <td>3</td>
+                <td>366,04</td>
+                <td>0%</td>
+                <td>5%</td>
+                <td>5%</td>
+                <td>18,30175075</td>
+                <td>22%</td>
+                <td>103,44</td>
+                <td>16%</td>
+                <td>65,48</td>
+                <td>3,24</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+                <td>0,60</td>
+                <td>3,913471119</td>
+                <td>578,16</td>
+                <td>20,31</td>
+                <td>598,47</td>
+        </tr>
+                <tr>
+                <td>S9MR0040147</td>
+                <td>Цапфа EMBA 175/(209475)</td>
+                <td>10</td>
+                <td>шт</td>
+                <td>25</td>
+                <td>250</td>
+                <td>1,66%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>250</td>
+                <td>5</td>
+                <td>2,5</td>
+                <td>305,03</td>
+                <td>0%</td>
+                <td></td>
+                <td>0%</td>
+                <td>0</td>
+                <td>22%</td>
+                <td>82,31</td>
+                <td>16%</td>
+                <td>52,10</td>
+                <td>2,70</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+                <td>0,50</td>
+                <td>3,108711343</td>
+                <td>460,03</td>
+                <td>16,16
+                <td>476,19</td>
+        </tr>
+                </tr>
+                <tr>
+                <td>S9MR0040216</td>
+                <td>Тарелка пружины EMBA 175/215/(204385)</td>
+                <td>2</td>
+                <td>шт</td>
+                <td>14</td>
+                <td>28</td>
+                <td>0,19%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>28,00</td>
+                <td>0,56</td>
+                <td>0,28</td>
+                <td>34,16</td>
+                <td>0%</td>
+                <td></td>
+                <td>0%</td>
+                <td>0</td>
+                <td>22%</td>
+                <td>9,22</td>
+                <td>16%</td>
+                <td>5,84</td>
+                <td>0,30</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+                <td>0,06</td>
+                <td>0,34817567</td>
+                <td>51,52</td>
+                <td>1,81</td>
+                <td>53,33</td>
+        </tr>
+                </tr>
+                <tr>
+                <td>S9MR0040350</td>
+                <td>Эксцентрик EMBA 170/(178902)</td>
+                <td>2</td>
+                <td>шт</td>
+                <td>100,00</td>
+                <td>200,00</td>
+                <td>1,33%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>200,00</td>
+                <td>4,00</td>
+                <td>2</td>
+                <td>244,02</td>
+                <td></td>
+                <td>10%</td>
+                <td>10%</td>
+                <td>24,40233433</td>
+                <td>22%</td>
+                <td>72,08</td>
+                <td>16%</td>
+                <td>45,62</td>
+                <td>2,16</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+                <td>0,40</td>
+                <td>2,730992418</td>
+                <td>402,85</td>
+                <td>14,15</td>
+                <td>417,00</td>
+        </tr>
+                </tr>
+                <tr>
+                <td>S9MR0040435</td>
+                <td>Пневматический редуктор  EMBA 245/(316935)</td>
+                <td>1</td>
+                <td>шт</td>
+                <td>2 000,00</td>
+                <td>2 000,00</td>
+                <td>13,26%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2 000,00</td>
+                <td>40,00</td>
+                <td>20</td>
+                <td>2 440,23</td>
+                <td>4%</td>
+                <td></td>
+                <td>4%</td>
+                <td>97,60933732</td>
+                <td>22%</td>
+                <td>717,22</td>
+                <td>16%</td>
+                <td>453,97</td>
+                <td>21,62</td>
+                <td>10000</td>
+                <td></td>
+                <td>132,40</td>
+                <td>3,99</td>
+                <td>27,16978366</td>
+                <td>4 008,50</td>
+                <td>140,85</td>
+                <td>4 149,35</td>
+        </tr>
     </table>
+
+    <!-- Buttons -->
+<div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+    
+    <button type="button" id="calculate-btn" class="form-btn primary-btn">
+        Произвести расчет
+    </button>
+    
+    <button type="button" id="send-btn" class="form-btn secondary-btn">
+        Отправить расчет
+    </button>
+
+</div>
+</div>
+
+<div id="content3" class="tab-content table-wrapper">
+        <table border="1">
+        <tr>
+                <th>Внутренний номер</th>
+                <th>Название русский</th>
+                <th>К-во</th>
+                <th>Ед. Изм</th>
+                <th>Стоимость за 1 ед, руб</th>
+                <th>Сумма поз в КП, руб (скрыт)</th>
+                <th>% позиции (скрыт)</th>
+                <th>Агентские (скрыт)</th>
+                <th>НДС Китай 3% (скрыт)</th>
+                <th>Сумма закуп, руб</th>
+                <th>Банковские расходы (скрыт)</th>
+                <th>Конвертация (скрыт)</th>
+                <th>Таможенная стоимость, сумма, руб (скрыт)</th>
+                <th>Предварительная пошлина %</th>
+                <th>Пошлина %</th>
+                <th>Пошлина выбор (скрыт)</th>
+                <th>Пошлина сумма, руб</th>
+                <th>НДС РФ, %</th>
+                <th>НДС РФ, сумма, руб</th>
+                <th>НДС КЗ, %</th>
+                <th>НДС КЗ, сумма, руб</th>
+                <th>Таможенные сборы, руб</th>
+                <th>Предварительная Сертификация сумма, руб</th>
+                <th>Сертификация сумма, руб</th>
+                <th>Сертификация выбор, руб (скрыт)</th>
+                <th>Фикс расходы КЗ, руб (скрыт)</th>
+                <th>Комиссия КЗ, руб (скрыт)</th>
+                <th>ССТ сумма (скрыт), вал</th>
+                <th>Использование средств сумма, руб (скрыт)</th>
+                <th>ССТ финал, руб</th>
+            </tr>
+            <tr>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Расчет делается следующим образом: таможенная стоимость в рублях сравнивается с диапазонами таможенных сборов. Отражается тот, диапазон, в который она попала. * "% позиции (скрыт)"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+
+            </tr>
+<tr>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+            </tr>
+    </table>
+        <!-- Buttons -->
+<div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+    
+    <button type="button" id="calculate-btn" class="form-btn primary-btn">
+        Произвести расчет
+    </button>
+    
+    <button type="button" id="send-btn" class="form-btn secondary-btn">
+        Отправить расчет
+    </button>
+</div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const paymentSelect = document.getElementById('payment-type');
+    const vatRow = document.getElementById('vat-row');
+    const vatSelect = document.getElementById('vat-difference');
+
+    paymentSelect.addEventListener('change', function() {
+        // Проверяем, выбран ли вариант "Далянь (Ирина)"
+        if (this.value === 'dalian') {
+            vatRow.classList.remove('hidden-field'); // Показываем поле
+        } else {
+            vatRow.classList.add('hidden-field');    // Скрываем поле
+            vatSelect.value = '';                    // Сбрасываем значение внутри него
+        }
+    });
+});
+
+</script>
+
+<!--Show export declaration price if EXW terms are selected  -->
+<script>
+    // Set up the listener using classList management to respect your project's hidden-field class
+    document.getElementById('shipping-terms').addEventListener('change', function() {
+        const extraField = document.getElementById('exw-export-declaration');
+        
+        if (this.value === 'EXW') {
+            // Remove the hidden class to make it pop into view
+            extraField.classList.remove('hidden-field');
+        } else {
+            // Put the hidden class back if anything else is selected
+            extraField.classList.add('hidden-field');
+        }
+    });
+</script>
+
 </body>
 </html>
