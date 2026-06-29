@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles1.css">
+
+</head>
+<body>
+    <a href="./index.html">← Назад к таблице</a>
+    <h1>Предварительный расчет ССТ — Заказ UT-000004</h1>
+
+<p>СЦЕНАРИЙ 4: ОПЛАТА ЧЕРЕЗ АГЕНТА (А7).Снабженец отправил запрос и специалист по ВЭД в процессе обработки внес все необходимые данные для расчета ССТ, после чего отправил снабженцу себестоимость в валюте, нажав на кнопку "Отправить расчет" во вкладке "Предварительный расчет ССТ в валюте".
+    В процессе расчета специалист по ВЭД установил, что стоимость доставки (фрахта) составляет 110 000 руб + 30 000 CNY, стоимость таможенного оформления стандартна (30 000 руб за ДТ + 1000 руб за каждый доп лист), 
+    тип оплаты будет через агента А7. Вес - 200кг,     Упаковка - 1 деревянный ящик 200*50*40см. Условия поставки - EXW. Этот текст здесь чисто для описания примера данных ниже.
+    Вот, что пришло от снабженца: 
+    S9MR34699	Вал BHS (157896400)/AF-P	10	шт	1000000	10 000 000,00;
+S1MR0030700	Анти краш ролик BHS OD 165/ID 65/W 50/(231-11944B)	10	шт	50000	500 000,00;
+S9MR3463718	Крепеж BHS/(118407)	20	шт	1000	20 000,00;
+S9MR3464489	Клапан BHS/(241697821/241697826)/DN40 PN25 200*С	10	шт	30000	300 000,00.
+
+</p>  
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Поставщик:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">Horsebridge International Commerce Co., Ltd</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Адрес забора груза:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">Shishan, Foshan, Nanhai District, Foshan, Guangdong Province, China, 528225</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Адрес доставки груза:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">Промышленный Парк Сенькино, Москва, Россия</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Упаковка:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">1 деревянный ящик 200*50*40см</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Общий вес брутто:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">200 кг</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="shipping-terms-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Условия поставки:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <select id="shipping-terms" class="styled-select">
+                <option value="EXW">EXW</option>
+            </select>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<!-- Extra field element starts with hidden-field just like vat-row -->
+<div id="exw-export-declaration" class="shipping-terms-container hidden-field" style="margin-top: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133;">Экспортная декларация:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">100 EUR</span>
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Последняя дата расчета:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <!-- Added id="calc-date" -->
+            <span id="calc-date" class="supplier-name" style="font-weight: bold; color: #303133;">11.06.2026</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Валюта расчета:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">CNY</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Курс ЦБ 1 валюты:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <!-- Added id="cbr-rate" -->
+            <span id="cbr-rate" class="supplier-name" style="font-weight: bold; color: #303133;">10,5825</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Фрахт (часть в рублях):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="110 000">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Фрахт (часть в валюте):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="30 000">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="form-row">
+    <span class="form-title">Тип оплаты</span>
+    
+        <select id="payment-type" class="styled-select">
+            <option value="direct">Прямая</option>
+        </select>
+        <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div id="vat-row" class="form-row hidden-field">
+    <span class="form-title">Есть разница в НДС в Китае?</span>
+    <select id="vat-difference" class="styled-select">
+        <option value="">(не выбрано)</option>
+        <option value="yes">Да (3%)</option>
+        <option value="no">Нет</option>
+    </select>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 12px;">
+    <div style="display: flex; flex-direction: row; align-items: center; gap: 24px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Страховка:</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="cbr-rate-insurance" class="supplier-name" style="font-weight: bold; color: #303133;">0,3%</span>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Сумма по страховке:</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="cbr-rate-amount" class="supplier-name" style="font-weight: bold; color: #303133;">0,3%*10 820 000(сумма закупа)=32 460</span>
+            </div>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Длительность поставки (календарных дней):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="60">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подушка безопасности доставка (%):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="10%">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подушка безопасности сертификация (%):</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="10%">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Стоимость таможенного оформления, руб:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="31 000">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"></span>
+</div>
+
+<input type="radio" name="tabs" id="tab2">
+<label for="tab2">Предварительный расчет ССТ в валюте</label>
+
+<input type="radio" name="tabs" id="tab3">
+<label for="tab3">Предварительный расчет ССТ в рублях</label>
+
+<div id="content2" class="tab-content table-wrapper">
+        <table border="1">
+        <tr>
+                <th>Внутренний номер</th>
+                <th>Название русский</th>
+                <th>К-во</th>
+                <th>Ед. Изм</th>
+                <th>Стоимость за 1 ед, вал</th>
+                <th>Сумма поз в КП, вал (скрыт)</th>
+                <th>% позиции (скрыт)</th>
+                <th>Агентские (скрыт)</th>
+                <th>НДС Китай 3% (скрыт)</th>
+                <th>Сумма закуп, вал</th>
+                <th>Банковские расходы (скрыт)</th>
+                <th>Конвертация (скрыт)</th>
+                <th>Таможенная стоимость, сумма, вал (скрыт)</th>
+                <th>Предварительная пошлина %</th>
+                <th>Пошлина %</th>
+                <th>Пошлина выбор (скрыт)</th>
+                <th>Пошлина сумма, вал</th>
+                <th>НДС РФ, %</th>
+                <th>НДС РФ, сумма, вал</th>
+                <th>НДС КЗ, %</th>
+                <th>НДС КЗ, сумма, вал</th>
+                <th>Таможенные сборы, вал</th>
+                <th>Предварительная Сертификация сумма, руб</th>
+                <th>Сертификация сумма, руб</th>
+                <th>Сертификация выбор, вал (скрыт)</th>
+                <th>Фикс расходы КЗ, вал (скрыт)</th>
+                <th>Комиссия КЗ, вал (скрыт)</th>
+                <th>ССТ сумма (скрыт), вал</th>
+                <th>Использование средств сумма, вал (скрыт)</th>
+                <th>ССТ финал, вал</th>
+            </tr>
+        
+        <tr>
+                <td>S9MR34699</td>
+                <td>Вал BHS (157896400)/AF-P</td>
+                <td>10</td>
+                <td>шт</td>
+                <td>1 000 000</td>
+                <td>10 000 000</td>
+                <td>92,42%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>10 000 000</td>
+                <td>300 000,00</td>
+                <td>300 000,00</td>
+                <td>10 071 792,10</td>
+                <td>5%</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>0</td>
+                <td>22%</td>
+                <td>2 349 808,99</td>
+                <td></td>
+                <td>0</td>
+                <td>6 450,51</td>
+                <td>10 000</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>13 030 758,97</td>
+                <td>0</td>
+                <td>13 030 758,97</td>
+        </tr>
+        <tr>
+                <td>S1MR0030700</td>
+                <td>Анти краш ролик BHS OD 165/ID 65/W 50/(231-11944B)</td>
+                <td>10</td>
+                <td>шт</td>
+                <td>50 000</td>
+                <td>500 000</td>
+                <td>4,62%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>500 000,00</td>
+                <td>15 000,00</td>
+                <td>15 000,00</td>
+                <td>503 589,61</td>
+                <td>0%</td>
+                <td> </td>
+                <td>0%</td>
+                <td>2355,078242</td>
+                <td>22%</td>
+                <td>117 490,45</td>
+                <td></td>
+                <td>0</td>
+                <td>322,53</td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>651 537,95</td>
+                <td>0</td>
+                <td>651 537,95</td>
+        </tr>
+         <tr>
+                <td>S9MR3463718</td>
+                <td>Крепеж BHS/(118407)</td>
+                <td>20</td>
+                <td>шт</td>
+                <td>1 000</td>
+                <td>20 000</td>
+                <td>0,18%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>20 000,00</td>
+                <td>600,00</td>
+                <td>600,00</td>
+                <td>20 143,58</td>
+                <td>0%</td>
+                <td></td>
+                <td>0%</td>
+                <td>0</td>
+                <td>22%</td>
+                <td>4 699,62</td>
+                <td></td>
+                <td>0</td>
+                <td>12,90</td>
+                <td>0</td>
+                <td> </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>26 061,52</td>
+                <td>0</td>
+                <td>26 061,52</td>
+         </tr>
+        <tr>
+                <td>S9MR3464489</td>
+                <td>Клапан BHS/(241697821/241697826)/DN40 PN25 200*С</td>
+                <td>10</td>
+                <td>шт</td>
+                <td>30 000,00</td>
+                <td>300 000,00</td>
+                <td>2,77%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>300 000,00</td>
+                <td>9 000,00</td>
+                <td>9 000,00</td>
+                <td>302 153,76</td>
+                <td>2%</td>
+                <td>0%</td>
+                <td>0%</td>
+                <td>0</td>
+                <td>22%</td>
+                <td>70 494,27</td>
+                <td></td>
+                <td>0</td>
+                <td>193,52</td>
+                <td>10 000,00</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>390 922,77</td>
+                <td>0</td>
+                <td>390 922,77</td>
+        </tr>
+    </table>
+
+    <!-- Buttons -->
+<div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+    
+    <button type="button" id="calculate-btn" class="form-btn primary-btn">
+        Произвести расчет
+    </button>
+    
+    <button type="button" id="send-btn" class="form-btn secondary-btn">
+        Отправить расчет
+    </button>
+
+</div>
+</div>
+
+<div id="content3" class="tab-content table-wrapper">
+        <table border="1">
+        <tr>
+                <th>Внутренний номер</th>
+                <th>Название русский</th>
+                <th>К-во</th>
+                <th>Ед. Изм</th>
+                <th>Стоимость за 1 ед, руб</th>
+                <th>Сумма поз в КП, руб (скрыт)</th>
+                <th>% позиции (скрыт)</th>
+                <th>Агентские (скрыт)</th>
+                <th>НДС Китай 3% (скрыт)</th>
+                <th>Сумма закуп, руб</th>
+                <th>Банковские расходы (скрыт)</th>
+                <th>Конвертация (скрыт)</th>
+                <th>Таможенная стоимость, сумма, руб (скрыт)</th>
+                <th>Предварительная пошлина %</th>
+                <th>Пошлина %</th>
+                <th>Пошлина выбор (скрыт)</th>
+                <th>Пошлина сумма, руб</th>
+                <th>НДС РФ, %</th>
+                <th>НДС РФ, сумма, руб</th>
+                <th>НДС КЗ, %</th>
+                <th>НДС КЗ, сумма, руб</th>
+                <th>Таможенные сборы, руб</th>
+                <th>Предварительная Сертификация сумма, руб</th>
+                <th>Сертификация сумма, руб</th>
+                <th>Сертификация выбор, руб (скрыт)</th>
+                <th>Фикс расходы КЗ, руб (скрыт)</th>
+                <th>Комиссия КЗ, руб (скрыт)</th>
+                <th>ССТ сумма (скрыт), вал</th>
+                <th>Использование средств сумма, руб (скрыт)</th>
+                <th>ССТ финал, руб</th>
+            </tr>
+            <tr>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Расчет делается следующим образом: таможенная стоимость в рублях сравнивается с диапазонами таможенных сборов. Отражается тот, диапазон, в который она попала. * "% позиции (скрыт)"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+                <td>Данные копируются из основной вкладки - "Предварительный расчет ССТ в валюте" и умножаются на значение "Курс ЦБ 1 валюты"</td>
+
+            </tr>
+            <!-- </tr>
+                    <tr>
+                <td>Внутренний номер</td>
+                <td>Название русский</td>
+                <td>К-во</td>
+                <td>Ед. Изм</td>
+                <td>Стоимость за 1 ед, вал</td>
+                <td>Сумма поз в КП, вал (скрыт)</td>
+                <td>% позиции (скрыт)</td>
+                <td>Агентские (скрыт)</td>
+                <td>НДС Китай 3% (скрыт)</td>
+                <td>Сумма закуп, вал</td>
+                <td>Банковские расходы (скрыт)</td>
+                <td>Конвертация (скрыт)</td>
+                <td>Таможенная стоимость, сумма, вал (скрыт)</td>
+                <td>Предварительная пошлина %</td>
+                <td>Пошлина %</td>
+                <td>Пошлина выбор (скрыт)</td>
+                <td>Пошлина сумма, вал</td>
+                <td>НДС РФ, %</td>
+                <td>НДС РФ, сумма, вал</td>
+                <td>НДС КЗ, %</td>
+                <td>НДС КЗ, сумма, вал</td>
+                <td>Таможенные сборы, вал</td>
+                <td>Предварительная Сертификация сумма, руб</td>
+                <td>Сертификация сумма, руб</th>
+                <td>Сертификация выбор, вал (скрыт)</td>
+                <td>Фикс расходы КЗ, вал (скрыт)</td>
+                <td>Комиссия КЗ, вал (скрыт)</td>
+                <td>ССТ сумма (скрыт), вал</td>
+                <td>Использование средств сумма, вал (скрыт)</td>
+                <td>ССТ финал, вал</th>
+            </tr> -->
+<tr>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                <td>итд</td>
+                 </tr>
+    </table>
+        <!-- Buttons -->
+<div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+    
+    <button type="button" id="calculate-btn" class="form-btn primary-btn">
+        Произвести расчет
+    </button>
+    
+    <button type="button" id="send-btn" class="form-btn secondary-btn">
+        Отправить расчет
+    </button>
+</div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const paymentSelect = document.getElementById('payment-type');
+    const vatRow = document.getElementById('vat-row');
+    const vatSelect = document.getElementById('vat-difference');
+
+    paymentSelect.addEventListener('change', function() {
+        // Проверяем, выбран ли вариант "Далянь (Ирина)"
+        if (this.value === 'dalian') {
+            vatRow.classList.remove('hidden-field'); // Показываем поле
+        } else {
+            vatRow.classList.add('hidden-field');    // Скрываем поле
+            vatSelect.value = '';                    // Сбрасываем значение внутри него
+        }
+    });
+});
+
+</script>
+
+<!--Show export declaration price if EXW terms are selected  -->
+<script>
+    // Set up the listener using classList management to respect your project's hidden-field class
+    document.getElementById('shipping-terms').addEventListener('change', function() {
+        const extraField = document.getElementById('exw-export-declaration');
+        
+        if (this.value === 'EXW') {
+            // Remove the hidden class to make it pop into view
+            extraField.classList.remove('hidden-field');
+        } else {
+            // Put the hidden class back if anything else is selected
+            extraField.classList.add('hidden-field');
+        }
+    });
+</script>
+
+</body>
+</html>
