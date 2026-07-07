@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles1.css">
+
+</head>
+<body>
+    <p>Логика формирования названия: [Статус] — Заказ [№ Заказа], Продавец: [Наименование], Поставщик: [Наименование], Заказчик: [Наименование]</p>
+    <h1>Выбрать документ и продавца — Заказ POSP-000005, Продавец: НЕ ВЫБРАНО, Поставщик: Emmepi Group, Заказчик: Л-ПАК.</h1>
+
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Поставщик</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">	Emmepi Group</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Подгружается автоматически из запроса.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Продавец</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="Введите значение">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Пустое поле. Вносит ОЛ из списка имеющихся + нужно иметь возможность создать нового. База данных одна с поставщиками.
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Документ для закупки</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">	Заполняется по логике ниже</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">
+        1. Если с Продавцом уже есть контракт или договор, то из существующих подгружается документ по логике:
+        валюта документа = валюта закупки, далее выбирается документ с самой поздней датой, т.е. если у нас 2 контракта в CNY с компанией Godswill:
+        один от 2019, а другой от 2025, система выбирает контракт в CNY от 2025 года.
+        <br>
+        <br>
+        В ячейке будет отображаться: "Спецификация № Х к [тип документа] № Y." Например, "Спецификация № 5 к Контракту № GO-1234"
+        <br>
+        <br>
+        <b>Тип документа.</b> У нас 2 типа документа: договор и контракт. Если продавец из России, то документ называется договором, если за границей - контрактом.
+        <br>
+        <br>
+        2. Если у продавца нет контракта или договора , то в ячейке будет отражаться "Новый [тип документа] и спецификация."
+        <br>
+        <br>
+        3. Также должна быть возможность кликнуть на это поле и выбрать вручную один из вариантов из выпадающего списка. В списке должны быть следующие варианты:
+        <br>
+        - "Новый [тип документа] и спецификация."
+        <br>
+        - "Новый проформа инвойс"
+        <br>
+        <br>
+        <br>
+        То есть система сначала определяет, есть ли уже контракт, и если его нет, она предлагает создать новый. Помимо этого ОЛ всегда вручную может либо выбрать вариант с проформой,
+        либо с новым договором или контрактом (в зависимости от того, продавец из России (= Договор) или из любой другой страны (=Контракт)).
+    </span>
+</div>
+
+<br>
+<p> Пока не выбран Продавец и Документ для закупки кнопку Далее нажать нельзя.</p>
+<br>
+    <button type="button" id="calculate-btn" class="form-btn primary-btn">
+        Далее
+    </button>
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles1.css">
+
+</head>
+<body>
+   <p>Логика формирования названия: [Статус] — Заказ [№ Заказа], Продавец: [Наименование], Поставщик: [Наименование], Заказчик: [Наименование]</p>
+    <h1>Создание контракта — Заказ POSP-000001, Продавец: Godswill, Поставщик: Godswill, Заказчик: Алтайтара.</h1>
+
+<p>Данный интерфейс предназначен для внесения данных, на основании которых система формирует контракт. В 1С уже будет подгуржен наш стандартный бланк, в который система должна будет добавить данные ниже. Наш контракт
+    идет на 2 языках: на русском и английском, соответственно все значения ниже будут также следовать этой логике. В каждом поле я это также пропишу.
+</p>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Город</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">	Москва / Moscow</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;"> [2] 
+        <br>
+        Предлагаю следующую логику: пусть "Москва" идет по умолчанию, но должна возможность изменить его. Учитывая, что городов не так много, давай будем
+        выбирать их из списка и добавлять туда, можно вручную не принципиально. Главное, чтобы любое название при необходимости ОЛ мог свободно добавить и потом переиспользовать.
+        <br>
+        <br>
+        Помимо этого нам надо указывать название на английском. В идеале я бы сразу их парами делал. Например, в интерфейсе добавления города было бы 2 поля: "Название на русском" и "Название на английском".
+        Когда ОЛ внес оба варианта, они отразаились через слэш. И потом после заполнения всех полей и нажатия кнопки все данные переносятся в свои места внутри бланка контракта и формируется заполненный бланк.
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Дата</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">	03.07.2026</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[3]
+        <br>
+        Думаю, лучше всего сделать возможность выбора даты по календарю. ОЛ тыкает на календарь и выбирает дату, например 3 июля.
+        Она отражается в формате дд.мм.гггг как в русской так и в английской версии
+    </span>
+</div>
+
+<div class="our-company-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Наша компания</span>
+        <div class="our-company-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <select id="our-company" class="styled-select">
+                <option value="GMP">Гофромашины Премиум</option>
+                <option value="GM">Гофромашины</option>
+            </select>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[4]
+        <br>
+        Значение по умолчанию - Гофромашины Премиум. Другие компании использовать не планируется, но я на всякий случай хочу сразу
+        проработать такой сценарий. Что будет меняться, так это банковские реквизиты в поле ниже.
+    </span>
+</div>
+
+<div class="bank-us-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Наши банк реквизиты</span>
+        <div class="bank-us-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <select id="bank-us" class="styled-select">
+                <option value="">Выберите банк</option>
+                <option value="VTBCNY">ВТБ - CNY</option>
+                <option value="VTBRUB">ВТБ - RUB</option>
+                <option value="OTPEUR">OTP - EUR</option>
+            </select>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[5]
+        <br>
+        Для демонстрации выбирать ВТБ. Так это выпадающий список. То, что подгружается ниже, в 1С тоже желательно выводить после выбора банка для визуальной проверки ОЛ.
+    </span>
+</div>
+
+<div id="VTBCNY" class="bank-us-container hidden-field" style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[5-1] Наименование банка:</span>
+        <div class="bank-us-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="bank-us-name" style="font-weight: bold; color: #303133;">VTB</span>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[5-2] Адрес банка:</span>
+        <div class="bank-us-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="bank-us-name" style="font-weight: bold; color: #303133;">VTB</span>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[5-3] Телефон банка:</span>
+        <div class="bank-us-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="bank-us-name" style="font-weight: bold; color: #303133;">VTB</span>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[5-4] SWIFT:</span>
+        <div class="bank-us-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="bank-us-name" style="font-weight: bold; color: #303133;">VTB</span>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[5-5] Номер счета:</span>
+        <div class="bank-us-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="bank-us-name" style="font-weight: bold; color: #303133;">VTB</span>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[5-6] Наименование банка англ:</span>
+        <div class="bank-us-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="bank-us-name" style="font-weight: bold; color: #303133;">VTB</span>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[5-7] Адрес банка англ:</span>
+        <div class="bank-us-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="bank-us-name" style="font-weight: bold; color: #303133;">VTB</span>
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Контрагент</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">	Полное название компании</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[6]
+        <br>
+        Подгружается автоматически из поля "Продавец". Помимо него под ним подгружаются Реквизиты для контракта.
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Адрес контрагента (рус)</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">NO.88, SHENJHOU N. RD., SHENGANG DISTRICT, TAICHUNG CITY 429, TAIWAN.</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[7]
+        <br>
+        Выгружается автоматически из карточки контрагента. Допускается, что для иностранных контрагентов адрес будет на английском как в русской,
+        так и в английской версиях документа.
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">[8]Адрес контрагента (англ)</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">NO.88, SHENJHOU N. RD., SHENGANG DISTRICT, TAICHUNG CITY 429, TAIWAN.</span>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Телефон контрагента</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">886 4 2526 8912</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[9]
+        <br>
+        Выгружается автоматически из карточки контрагента. Допускается, что для иностранных контрагентов адрес будет на английском как в русской,
+        так и в английской версиях документа.
+    </span>
+</div>
+
+<div class="bank-supplier-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Банк контрагента</span>
+        <div class="bank-supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <select id="bank-supplier" class="styled-select">
+                <option value="">(выберите банк)</option>
+                <option value="HUA">HUA NAN в USD</option>
+            </select>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[10]
+        <br>
+        В выпадающем меню указываются сохраненные за контрагентом банки. ОЛ либо создает новый, либо выбирает
+        один из существующих вариантов. После выбора варианта ниже должна отразиться ключевая информация для проверки. В случае банка текст вносится на английском и используется как для русской
+        так и для английской версии документов. Можно не дублировать в карточке. Либо если уж дублировать, сделать так, чтобы внеся в поля на одном языке, их значение автоматом копировалось в соответственные
+        поля на другом языке. Поле 10-3 не будет обязательным, если оно осталось пустым, в контракте его не отражаем.
+    </span>
+</div>
+
+<div id="HUA" class="bank-supplier-container hidden-field" style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[10-1] Наименование банка:</span>
+        <div class="bank-supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">HUA NAN COMMERCIAL BANK LTD,SHI-FENGYUAN BRANCH</span>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[10-2] Адрес банка:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">NO. 225, YUANHUAN S.RD., FENGYUAN DIST, TAICHUNG CITY, TAIWAN, R.O.C.</span>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[10-3] Телефон банка:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">886-4-25275123</span>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[10-4] SWIFT:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">HNBKTWTP 403</span>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="form-title field-label" style="font-weight: bold; color: #303133; min-width: 170px;">[10-5] Номер счета:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span class="supplier-name" style="font-weight: bold; color: #303133;">403-97-000009-9</span>
+        </div>
+    </div>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подписант контрагента</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">	должность + ФИО + действует на основании чего</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[11]
+        <br>
+        В 1С уже продуманы какие-то стандартные решения для таких вопросов? Если нет, я бы это реализовал так:
+        ОЛ проваливается в поле и создает нового подписанта. Там надо заполнить ФИО, должность и действует на основании чего, - все на 2 языках. В целом, думаю, должности тоже можно сохранять, чтобы потом переиспользовать,
+        но это не обязательно. При этом мб еще дополнительно добавить варианты падежных склонений? Я дополнительно тебе направлю бланк где будет указано, куда что вставлять и мы можем в программе прописать,
+        в каком виде куда ФИО добавляется. Но опять-таки, если мы потом что-то изменим как это будет работать? Желательно сделать какую-то более-менее автоматизированную логику. Если что, готов тут созвониться и пояснить.
+        <br>
+        Непосредственно в поле можно отразить только ФИО или должность и ФИО на русском, главное, чтобы внутри были заполнены все поля, можно сделать требование их все заполнить. И если человек выбрал вариант,
+        хоть отражается только русский, он значет, что внутри все заполнено и в бланк подтянется.
+        <br>
+        [11-1] должность англ
+        <br>
+        [11-2] должность рус
+        <br>
+        [11-3] ФИО англ
+        <br>
+        [11-4] на основании чего действует англ
+        <br>
+        [11-5] на основании чего действует рус
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Валюта контракта</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">USD</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[12]
+        <br>
+        Приходит из запроса снабженца. Должна быть возможность ее изменить (выбрав из списка). Название используется без изменений в русской И
+        английской версиях документа.
+    </span>
+</div>
+
+<div class="shipping-terms-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Условия поставки по умолчанию</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <select id="shipping-terms" class="styled-select">
+                <option value="">(выберите условия поставки)</option>
+                <option value="EXW">EXW</option>
+                <option value="FOB">FOB</option>
+                <option value="DAP">DAP</option>
+                <option value="CIF">CIF</option>
+                <option value="FCA">FCA</option>
+                <option value="CPT">CPT</option>
+                <option value="CIP">CIP</option>
+                <option value="FAS">FAS</option>
+                <option value="CFR">CFR</option>
+                <option value="DPU">DPU</option>
+            </select>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[13]
+        <br>
+        Название используется без изменений в русской и английской версиях документа.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Incoterms</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">	2020</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[14]
+        <br>
+        Значение 2020 должно идти по умолчанию. Можно изменить вручную.</span>
+</div>
+
+<div class="shipping-terms-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">[15]Арбитраж</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <select id="shipping-terms" class="styled-select">
+                <option value="">(выберите арбитраж)</option>
+                <option value="EXW">Сингапур</option>
+                <option value="FOB">Швейцария</option>
+                <option value="DAP">Россия</option>
+                <option value="CIF">Китай</option>
+            </select>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Предлагаю хранить в виде списка, можно короткое название, а внутри полное (на русском и английском), которое будет идти в контракт.
+        <br>
+        Например, Сингапур. Что будет внутри карточки (цифры указал для удобства, их в 1С отражать не надо):
+        <br>
+        [15-1] Расположение (рус): Сингапур.
+        <br>
+        [15-2] Расположение англ: Singapore.
+        <br>
+        [15-3] Полное название (рус): Сингапурский Международный Арбитражный Центр (SIAC)
+        <br>
+        [15-4] Полное название (англ): Singapore International Arbitration Centre (SIAC)
+        <br>
+        [15-5] Применительное право (рус): законодательство Сингапура
+        <br>
+        [15-6] Применительное право (англ): Legislation of the Singapore
+        <br>
+        [15-7] Язык судопроизводства (рус): английский
+        <br>
+        [15-8] Язык судопроизводства (англ): English
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Ответственность сторон законодательство (8.1)</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Россия</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[16]
+        <br>
+        Пусть по умолчанию будет Россия. Нужна тоже карточка либо какое-то еще решение. В пункте 8.1. надо будет указывать не "Россия", а "России"; 
+        в английской версии, соответственно, "Russia". Подобную же логику надо будет предусмотреть для использования законодательства любой другой страны.
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Штраф на продавца задержка доставки (8.2)</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">0,3%</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[17]
+        <br>
+        Пусть 0.3% будет значением по умолчанию. Нужна возможность менять.</span>
+</div>
+
+<p> Возможно, в будующем мы дополним контракт другими пунктами ответственности, их также будем прописывать тут.</p>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Срок подачи претензии покупателем</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">10</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[18]
+        <br>
+        Пусть 10  будет значением по умолчанию. Должна быть возможность изменить. В контракте также в скобках прописывается словами
+        на русском и английском. Хотелось бы, чтобы в текстовом виде формировалось автоматически. В русском это должно быть в виде: "не позднее х дней", т.е. будет десяти, пятнадцати, четырех итд 
+        (для понимания окончаний), а в английской версии просто будет стандартно - ten, fifteen, four итп.
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Срок ответа на претензию продавцом</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">5</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[19]
+        <br>
+        Пусть 5  будет значением по умолчанию. Должна быть возможность изменить.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Срок действия контракта до</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Выберите значение из календаря</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[20]
+        <br>
+        Выгужаетя в обе версии контракта в формате дд.мм.гггг. Например: 03.07.2026.</span>
+</div>
+
+
+<p>Также "под капотом" есть и используются в заполнении бланка контракта:
+    <br>
+    [1] номер контракта - генеририруется системой автоматически
+    <br>
+    [21] наш подписант - по умолчанию всегда Борисов Алексей Викторович, генеральный директор, действует на основании Устава
+</p>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+    const selectElement = document.getElementById('bank-us');
+    const bankDetailsBlock = document.getElementById('VTBCNY');
+    if (!selectElement || !bankDetailsBlock) return;
+
+    function toggleBankDetails() {
+        if (selectElement.value === 'VTBCNY') {
+            bankDetailsBlock.classList.remove('hidden-field');
+        } else {
+            bankDetailsBlock.classList.add('hidden-field');
+        }
+    }
+    selectElement.addEventListener('change', toggleBankDetails);
+    toggleBankDetails();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const selectElement = document.getElementById('bank-supplier');
+    const bankDetailsBlock = document.getElementById('HUA');
+    if (!selectElement || !bankDetailsBlock) return;
+
+    function toggleBankDetails() {
+        if (selectElement.value === 'HUA') {
+            bankDetailsBlock.classList.remove('hidden-field');
+        } else {
+            bankDetailsBlock.classList.add('hidden-field');
+        }
+    }
+    selectElement.addEventListener('change', toggleBankDetails);
+    toggleBankDetails();
+});
+
+
+
+</script>
+</body>
+</html>

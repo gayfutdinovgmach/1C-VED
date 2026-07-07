@@ -131,13 +131,81 @@ label {
 
 <div id="content2" class="tab-content">
     <table border="1">
-        <tr><th>Country</th><th>Capital</th></tr>
-        <tr><td>Germany</td><td>Berlin</td></tr>
+        <tr>
+            <!-- ID закупки – уникальный номер, который присваивается сделке по закупке. В одном ID закупки может содержаться несколько заказов для одного и того же поставщика. -->
+            <th>ID закупки</th>
+            <th>Продавец</th>
+            <th>Поставщик</th>
+            <th>Заказчик</th>
+            <th>Статус</th>
+            <th>Комментарий</th>
+        </tr>
+                        <tr>
+            <!-- PO - "purchase order", SP - "spare parts" -->
+            <td>POSP-000004</td>
+            <td>НЕ ВЫБРАНО</td>
+            <td>Emmepi Group</td>
+            <td>Л-ПАК</td>
+            <td>Выбрать документ и продавца</td>
+            <td>Взять в работу после ответа Андрея</td>
+        </tr>
+        <tr>
+            <!-- PO - "purchase order", SP - "spare parts" -->
+            <td>POSP-000001</td>
+            <td>Godswill</td>
+            <td>Godswill</td>
+            <td>Алтайтара</td>
+            <td>Создание контракта</td>
+            <td></td>
+        </tr>
+                <tr>
+            <!-- PO - "purchase order", SP - "spare parts" -->
+            <td>POSP-000002</td>
+            <td>Horsebridge</td>
+            <td>FAS</td>
+            <td>Норма-Пак</td>
+            <td>Создание спецификации</td>
+            <td></td>
+        </tr>
+                                <tr>
+            <td>POSP-000006</td>
+            <td>Chinese SME1</td>
+            <td>Chinese SME1</td>
+            <td>Нурек</td>
+            <td>Создание проформы</td>
+            <td></td>
+        </tr>
+                <tr>
+            <!-- PO - "purchase order", SP - "spare parts" -->
+            <td>POSP-000003</td>
+            <td>Импорт Логистика</td>
+            <td>Techno Engineering SRL</td>
+            <td>ППГК</td>
+            <td>Оплата: в работе у бухаглтерии</td>
+            <td></td>
+        </tr>
+
+                <tr>
+            <!-- PO - "purchase order", SP - "spare parts" -->
+            <td>POSP-000005</td>
+            <td>Полиграфснаб</td>
+            <td>Venture</td>
+            <td>Л-ПАК Кашира</td>
+            <td>Оплата: ушел в рейс</td>
+            <td></td>
+        </tr>
+
     </table>
 </div>
 
-<!-- Rest of content tabs 3 to 10 are kept unchanged -->
-<div id="content3" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
+
+<div id="content3" class="tab-content">
+    <table border="1">
+        <tr><th>Product</th><th>Price</th>
+        </tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+</div>
+
+
 <div id="content4" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
 <div id="content5" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
 <div id="content6" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
@@ -157,6 +225,27 @@ label {
             if (orderCell) {
                 const orderNumber = orderCell.textContent.trim();
                 const subPath = orderNumber.slice(2);
+                
+                const link = document.createElement('a');
+                // Added .html extension matching the physical filename
+                link.href = `./${subPath}.html`;
+                link.textContent = orderNumber;
+                
+                orderCell.textContent = '';
+                orderCell.appendChild(link);
+            }
+        }
+    });
+        document.addEventListener("DOMContentLoaded", () => {
+        const table = document.getElementById('content2');
+        const rows = table.getElementsByTagName('tr');
+
+        for (let i = 1; i < rows.length; i++) {
+            const orderCell = rows[i].getElementsByTagName('td')[0];
+            
+            if (orderCell) {
+                const orderNumber = orderCell.textContent.trim();
+                const subPath = orderNumber;
                 
                 const link = document.createElement('a');
                 // Added .html extension matching the physical filename
