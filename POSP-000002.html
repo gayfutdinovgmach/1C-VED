@@ -8,8 +8,199 @@
     <p>Логика формирования названия: [Статус] — Заказ [№ Заказа], Продавец: [Наименование], Поставщик: [Наименование], Заказчик: [Наименование]</p>
     <h1>Создание спецификации — Заказ POSP-000002, Продавец: Horsebridge, Поставщик: FAS, Заказчик: Норма-Пак.</h1>
 
-<p>Текст
-</p>
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Номер специфкиации</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">1</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[1] Генерируется автоматически, добавлен для вида.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Дата специфкиации</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">08.07.2026</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[2] Генерируется автоматически (сегодняшнее число), но можно изменить вручную.
+        <br>
+        Формат даты: дд.мм.гггг. Например: 08.07.2026.
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">[3] Номер контракта</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;"></span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">По факту этого поля нет, делаю просто для ссылки в бланке спецификации на это значение, туда оно должно выгружаться.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">[4] Дата контракта</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;"></span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">По факту этого поля нет, делаю просто для ссылки в бланке спецификации на это значение, туда оно должно выгружаться.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Валюта контракта</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">USD</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[5] Подгружается из контракта. Должна быть возможность ее изменить (выбрав из списка). Если контракт еще
+        не добавлен в БД, то выбор вручную.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Валюта платежа</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">USD</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[6] Подгружается из контракта. Должна быть возможность ее изменить (выбрав из списка). Если контракт еще
+        не добавлен в БД, то выбор вручную.
+    </span>
+</div>
+
+<div class="shipping-terms-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Условия поставки</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <select id="shipping-terms" class="styled-select">
+                <option value="">(выберите условия поставки)</option>
+                <option value="EXW">EXW</option>
+                <option value="FOB">FOB</option>
+                <option value="DAP">DAP</option>
+                <option value="CIF">CIF</option>
+                <option value="FCA">FCA</option>
+                <option value="CPT">CPT</option>
+                <option value="CIP">CIP</option>
+                <option value="FAS">FAS</option>
+                <option value="CFR">CFR</option>
+                <option value="DPU">DPU</option>
+            </select>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[7] Подгружается из последней спецификации. Можно менять вручную.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Incoterms</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">2020</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[8] По умолчанию должно стоять 2020. Можно менять вручную.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Населенный пункт для условий поставки</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="Введите значение">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[9] Подгружается из последней спецификации. Можно менять вручную.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Срок производства цифра</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="например, 20">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[10] Поле должно быть обязательным к заполнению во всплывающем окне у снабженца при отправке запроса на закуп. Нужна возможность менять вручную.</span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Срок производства ед. измерения</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <input type="text" id="manual-input" class="styled-input" placeholder="например, рабочих дней">
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[11] Поле должно быть обязательным к заполнению во всплывающем окне у снабженца при отправке запроса на закуп. Нужна возможность менять вручную.</span>
+</div>
+
+<div class="pmt-terms-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">[12] Условия оплаты</span>
+        <div class="pmt-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <select id="pmt-terms" class="styled-select">
+                <option value="">(выберите условия оплаты)</option>
+                <option value="100">[12-1]100% предоплата / [12-2] 100% prepayment</option>
+                <option value="30/70">...</option>
+            </select>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Подгружается из последней спецификации. Можно менять вручную.
+        В списке отражаются короткие названия, полные условия, которые выгружаются в спицификацию, хранятся в карточке. Нужно поле для русской версии [12-1] и английской [12-2].
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подписант продавец должность</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Директор по продажам</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[13] Подгружается из контракта, должна быть возможность изменить вручную. В спецификацию
+        выгружается на русском и английском языках из карточки.
+    </span>
+</div>
+
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подписант продавец ФИО</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">John Doe</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[14] Подгружается из контракта, должна быть возможность изменить вручную. В спецификацию
+        выгружается на английском в оба языка.
+    </span>
+</div>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подписант покупатель должность</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Генеральный директор</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[15] Подгружается из контракта, должна быть возможность изменить вручную. В спецификацию
+        выгружается на русском и английском языках из карточки.
+    </span>
+</div>
+
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подписант покупатель ФИО</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Борисов А.В.</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">[16] Подгружается из контракта, должна быть возможность изменить вручную. В спецификацию
+        выгружается на английском в оба языка.
+    </span>
+</div>
 
 </body>
 </html>
