@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Интерфейс окна оплаты</h1>
+
+
+    <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подписанный контракт</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Кнопка для просмотра/скачивания</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Только скачивание. Мб еще сделать "открыть", если такое технически легко реализовать.
+        </span>
+    </div>
+
+    <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Редактируемый контракт</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Кнопка для просмотра/скачивания</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Только скачивание. Мб еще сделать "открыть", если такое технически легко реализовать.
+        </span>
+    </div>
+
+    <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подписанная спецификация</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Кнопка для просмотра/скачивания</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Только скачивание. Мб еще сделать "открыть", если такое технически легко реализовать.
+        </span>
+    </div>
+
+    <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Релактируемая спецификация</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Кнопка для просмотра/скачивания</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Только скачивание. Мб еще сделать "открыть", если такое технически легко реализовать.
+        </span>
+    </div>
+
+    <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Проформа</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Кнопка для просмотра/скачивания</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Только скачивание. Мб еще сделать "открыть", если такое технически легко реализовать.
+        </span>
+    </div>
+
+<p>Пусть еще для простоты будет написано: "Оплата по проформе" или "Оплата по контракту". Если приложена проформа, значит оплата по проформе, во всех остальных случаях по контракту.</p>
+
+<p>
+    <br>
+    Ниже привожу информацию, которая тут должна содержаться, думаю, лучше ее не делать в виде таблицЫ, а сделать в виде поле заголовок: поле значение, но смотри сам, какие лучшие практики есть и как пользователям обычно удобнее.
+</p>
+
+    <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Подписанный контракт</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Кнопка для просмотра/скачивания</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Только скачивание. Мб еще сделать "открыть", если такое технически легко реализовать.
+        </span>
+    </div>
+
+    <button type="button" id="send-btn" class="form-btn secondary-btn">
+        Оплачено
+    </button>
+
+<p>После проведения оплаты ОЛ нажимает кнопку "Оплачено" и статус у того, кто направлял бухгалтеру задачу на оплату меняется с
+    "Оплата: в работе у бухгалтерии" на "Оплата: ушел в рейс". У бухгалтера после этого данная строка исчезает из вкладки "Оплатить" и переносится во вкладку
+    "Оплата ушла от нас"
+</p>
+
+</body>
+</html>

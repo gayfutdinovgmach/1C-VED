@@ -202,5 +202,89 @@
     </span>
 </div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Артикул</th>
+      <th>Внутренний номер</th>
+      <th>Описание на русском</th>
+      <th>Описание на английском</th>
+      <th>К-во</th>
+      <th>Ед. Измерения</th>
+      <th>Цена за 1 ед.</th>
+      <th>Сумма</th>
+      <th>ID поставки</th>
+    </tr>
+    <tr>
+        <td>12234</td>
+        <td>S9MR0030001</td>
+        <td>Запчасть 1</td>
+        <td>Spare part 1</td>
+        <td>10</td>
+        <td>pc / шт</td>
+        <td>100</td>
+        <td>1 000,00</td>
+        <td>ABCXYZ-12345</td>
+    </tr>
+    <tr>
+        <td>12234</td>
+        <td>S9MR0030002</td>
+        <td>Запчасть 2</td>
+        <td>Spare part 2</td>
+        <td>20</td>
+        <td>pc / шт</td>
+        <td>220</td>
+        <td>4 400,00</td>
+        <td>ABCXYZ-12345</td>
+    </tr>
+    <tr>
+        <td>12234</td>
+        <td>S9MR0030003</td>
+        <td>Запчасть 3</td>
+        <td>Spare part 3</td>
+        <td>1</td>
+        <td>pc / шт</td>
+        <td>1500</td>
+        <td>1 500,00</td>
+        <td>ABCXYZ-12345</td>
+    </tr>
+    <tr>
+        <td>12234</td>
+        <td>S9MR0030004</td>
+        <td>Запчасть 4</td>
+        <td>Spare part 4</td>
+        <td>5</td>
+        <td>pc / шт</td>
+        <td>25</td>
+        <td>125,00</td>
+        <td>ABCXYZ-12345</td>
+    </tr>
+    <tr>
+        <td>12234</td>
+        <td>S9MR0030005</td>
+        <td>Запчасть 5</td>
+        <td>Spare part 5</td>
+        <td>4</td>
+        <td>pc / шт</td>
+        <td>400</td>
+        <td>1 600,00</td>
+        <td>ABCXYZ-12345</td>
+    </tr>   
+</table>
+
+<div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Итого, сумма по спецификации:</span>
+        <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">8 625</span>
+        </div>
+    </div>
+    <span class="field-value" style="color: #909399; font-size: 14px;">Сумма всех значений столбца "Сумма"</span>
+</div>
+
+<button type="button" id="calculate-btn" class="form-btn primary-btn">
+        Сформировать спецификацию и перейти далее
+    </button>
+
 </body>
 </html>

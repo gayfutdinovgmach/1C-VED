@@ -8,8 +8,33 @@
     <p>Логика формирования названия: [Статус] — Заказ [№ Заказа], Продавец: [Наименование], Поставщик: [Наименование], Заказчик: [Наименование]</p>
     <h1>Создание проформы — Заказ POSP-000006, Продавец: Chinese SME1, Поставщик: Chinese SME1, Заказчик: Нурек.</h1>
 
-<p>Текст
-</p>
 
+    <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Подгрузить проформу с подписью</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Обязтально для подгрузки. Принимает форматы картинок и pdf.
+            Кнопку "Далее" нельзя нажать, пока файл не подгружен.
+        </span>
+    </div>
+
+        <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Подгрузить проформу редактируемый файл</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Опционально. Формат подгрузки - любой.
+        </span>
+    </div>
+
+
+<button type="button" id="calculate-btn" class="form-btn primary-btn">
+        Далее
+    </button>
 </body>
 </html>

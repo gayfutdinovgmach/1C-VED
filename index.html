@@ -2,122 +2,477 @@
 <html>
 <head>
 <style>
-.tab-content {
-    display: none;
-    padding: 20px;
-    border: 1px solid #ccc;
+  .tab-content { display: none; padding: 20px; border: 1px solid #ccc; }
+
+  input[type="radio"] { display: none; }
+
+  label {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #eee;
+      cursor: pointer;
+  }
+
+
+  /* Outer tab highlight (only the clicked/checked one) */
+input[name="outerTabs"]:checked + label {
+  background: #007bff;
+  color: white;
 }
 
-input[type="radio"] {
-    display: none;
+/* Optional: reset all outer labels */
+input[name="outerTabs"] + label {
+  background: #eee;
+  color: inherit;
 }
 
-label {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #eee;
-    cursor: pointer;
-}
+  .inner-tabs input[type="radio"] + label { background: #eee; color: inherit; }
+  .inner-tabs input[type="radio"]:checked + label { background: #007bff; color: white; }
 
-#tab0:checked ~ #content0, #tab1:checked ~ #content1, #tab2:checked ~ #content2, #tab3:checked ~ #content3,
-#tab4:checked ~ #content4, #tab5:checked ~ #content5, #tab6:checked ~ #content6,
-#tab7:checked ~ #content7, #tab8:checked ~ #content8,#tab9:checked ~ #content9,
-#tab10:checked ~ #content10 {
-    display: block;
-}
+  .active { display: block !important; }
 
-#tab0:checked + label, #tab1:checked + label, #tab2:checked + label, #tab3:checked + label,
-#tab4:checked + label, #tab5:checked + label, #tab6:checked + label,
-#tab7:checked + label, #tab8:checked + label, #tab9:checked + label,
-#tab10:checked + label {
-    background: #007bff;
-    color: white;
-}
+
 </style>
 </head>
 <body>
 
-<input type="radio" name="tabs" id="tab0" checked>
-<label for="tab0">Общий обзор задач</label>
+<!-- TOP LEVEL -->
+ <!-- Name for id = outerTabName, where Name is the tab name -->
+<input type="radio" name="outerTabs" id="outerTabSupply" checked>
+<label for="outerTabSupply">ВЭД</label>
 
-<input type="radio" name="tabs" id="tab1" checked>
-<label for="tab1">Предварительный расчет ССТ</label>
+<input type="radio" name="outerTabs" id="outerTabBuh">
+<label for="outerTabBuh">Бухгалтерия</label>
 
-<input type="radio" name="tabs" id="tab2">
-<label for="tab2">Закупка</label>
+<input type="radio" name="outerTabs" id="outerTabGM">
+<label for="outerTabGM">Генеральный директор</label>
 
-<input type="radio" name="tabs" id="tab3">
-<label for="tab3">Производство</label>
+<input type="radio" name="outerTabs" id="outerTabDO">
+<label for="outerTabDO">Исполнительный директор</label>
 
-<input type="radio" name="tabs" id="tab4">
-<label for="tab4">Отгрузка</label>
+<input type="radio" name="outerTabs" id="outerTabSales">
+<label for="outerTabSales">Продажи</label>
 
-<input type="radio" name="tabs" id="tab5">
-<label for="tab5">Доставка (до ТО)</label>
+<input type="radio" name="outerTabs" id="outerTabZDPKV">
+<label for="outerTabZDPKV">Заместитель директора по коммерческим вопросам</label>
 
-<input type="radio" name="tabs" id="tab6">
-<label for="tab6">ТО</label>
+<input type="radio" name="outerTabs" id="outerTabOther">
+<label for="outerTabOther">Прочее</label>
 
-<input type="radio" name="tabs" id="tab7">
-<label for="tab7">Доставка (после ТО)</label>
+<!-- OUTER: SUPPLY -->
+<div id="outerContentSupply" class="outer-content tab-content active">
+  <!-- INNER TABS (your existing page goes here) -->
+  <div class="inner-tabs">
 
-<input type="radio" name="tabs" id="tab8">
-<label for="tab8">Приемка наш склад</label>
+    <input type="radio" name="innerTabsSupply" id="s_tab0" checked>
+    <label for="s_tab0">Общий обзор задач</label>
 
-<input type="radio" name="tabs" id="tab9">
-<label for="tab9">Расчет ССТ</label>
+    <input type="radio" name="innerTabsSupply" id="s_tab1">
+    <label for="s_tab1">Предварительный расчет ССТ</label>
 
-<input type="radio" name="tabs" id="tab10">
-<label for="tab10">Закрывающие действия</label>
+    <input type="radio" name="innerTabsSupply" id="s_tab2">
+    <label for="s_tab2">Закупка</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab3">
+    <label for="s_tab3">Производство</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab4">
+    <label for="s_tab4">Отгрузка</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab5">
+    <label for="s_tab5">Доставка (до ТО)</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab6">
+    <label for="s_tab6">ТО</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab7">
+    <label for="s_tab7">Доставка (после ТО)</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab8">
+    <label for="s_tab8">Приемка наш склад</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab9">
+    <label for="s_tab9">Расчет ССТ</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab10">
+    <label for="s_tab10">Закрывающие действия</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab11">
+    <label for="s_tab11">Поступления средств</label>
+
+    <div id="s_content0" class="tab-content active">
+      <table border="1">
+          <tr>
+              <th>Номер </th>
+              <th>Ответственный</th>
+              <th>Постановщик</th>
+              <th>Заказчик</th>
+              <th>Статус</th>
+          </tr>
+          <tr>
+              <td>ГПUT-000001</td>
+              <td>Литвинова (столбец есть только у руководителей, у исполнителей тут отражаются только те задачи, по которым они ответственные)</td>
+              <td>Круглов Андрей</td>
+              <td>Л-ПАК</td>
+              <td><label for="tab1" class="tab-link">Предварительный расчет ССТ</label></td>
+          </tr>
+          <tr>
+              <td>ГПUT-000002</td>
+              <td>Литвинова</td>
+              <td>Круглов Андрей</td>
+              <td>Л-ПАК</td>
+              <td><label for="tab6" class="tab-link">ТО</label></td>
+          </tr>
+          <tr>
+              <td>ГПUT-000003</td>
+              <td>Литвинова</td>
+              <td>Круглов Андрей</td>
+              <td>Архбум Воронеж</td>
+              <td><label for="tab4" class="tab-link">Отгрузка</label></td>
+          </tr>
+          <tr>
+              <td>ГПUT-000004</td>
+              <td>Литвинова</td>
+              <td>Круглов Андрей</td>
+              <td>ППГК</td>
+              <td><label for="tab4" class="tab-link">Отгрузка</label></td>
+          </tr>
+      </table>
+    </div>
+
+    <div id="s_content1" class="tab-content">
+      <table border="1">
+          <tr><th>Номер заказа</th><th>Постановщик</th><th>Заказчик</th></tr>
+          <tr><td><a href="./UT-000001.html">ГПUT-000001</a></td><td>Круглов Андрей</td><td>Л-ПАК</td></tr>
+          <tr><td><a href="./UT-000002.html">ГПUT-000002</a></td><td>Круглов Андрей</td><td>Л-ПАК</td></tr>
+          <tr><td><a href="./UT-000003.html">ГПUT-000003</a></td><td>Круглов Андрей</td><td>Архбум Воронеж</td></tr>
+          <tr><td><a href="./UT-000004.html">ГПUT-000004</a></td><td>Круглов Андрей</td><td>ППГК</td></tr>
+      </table>
+
+      <div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+        <button type="button" id="calculate-btn" class="form-btn primary-btn">
+          Обновить
+        </button>
+      </div>
+    </div>
+
+    <div id="s_content2" class="tab-content">
+      <table border="1">
+          <tr>
+              <th>ID закупки</th>
+              <th>Продавец</th>
+              <th>Поставщик</th>
+              <th>Заказчик</th>
+              <th>Статус</th>
+              <th>Комментарий</th>
+          </tr>
+          <tr>
+              <td><a href="./POSP-000004.html">POSP-000004</a></td>
+              <td>НЕ ВЫБРАНО</td>
+              <td>Emmepi Group</td>
+              <td>Л-ПАК</td>
+              <td>Выбрать документ и продавца</td>
+              <td>Взять в работу после ответа Андрея</td>
+          </tr>
+          <tr>
+              <td><a href="./POSP-000001.html">POSP-000001</a></td>
+              <td>Godswill</td>
+              <td>Godswill</td>
+              <td>Алтайтара</td>
+              <td>Создание контракта</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td><a href="./POSP-000002.html">POSP-000002</a></td>
+              <td>Horsebridge</td>
+              <td>FAS</td>
+              <td>Норма-Пак</td>
+              <td>Создание спецификации</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td><a href="./POSP-000006.html">POSP-000006</a></td>
+              <td>Chinese SME1</td>
+              <td>Chinese SME1</td>
+              <td>Нурек</td>
+              <td>Создание проформы</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td><a href="./POSP-000007.html">POSP-000007</a></td>
+              <td>Rodicut</td>
+              <td>Rodicut</td>
+              <td>Гофромашины Премиум</td>
+              <td>Оплата: отправить на оплату</td>
+              <td>Когда заказчик - ГМП, это поставка на склад</td>
+          </tr>
+          <tr>
+              <td><a href="./POSP-000003.html">POSP-000003</a></td>
+              <td>Импорт Логистика</td>
+              <td>Techno Engineering SRL</td>
+              <td>ППГК</td>
+              <td>Оплата: в работе у бухаглтерии</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td><a href="./POSP-000005.html">POSP-000005</a></td>
+              <td>Полиграфснаб</td>
+              <td>Venture</td>
+              <td>Л-ПАК Кашира</td>
+              <td>Оплата: ушел в рейс</td>
+              <td></td>
+          </tr>
+      </table>
+    </div>
+
+    <div id="s_content3" class="tab-content">
+      <table border="1">
+        <tr><th>Product</th><th>Price</th></tr>
+        <tr><td>Laptop</td><td>$1200</td></tr>
+      </table>
+    </div>
+
+    <div id="s_content4" class="tab-content">
+      <table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+    </div>
+
+    <div id="s_content5" class="tab-content">
+      <table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+    </div>
+
+    <div id="s_content6" class="tab-content">
+      <table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+    </div>
+
+    <div id="s_content7" class="tab-content">
+      <p>Доставка (после ТО)</p>
+    </div>
+
+    <div id="s_content8" class="tab-content">
+      <p>Приемка на склад</p>
+    </div>
+
+    <div id="s_content9" class="tab-content">
+      <p>Расчет ССТ</p>
+    </div>
+
+    <div id="s_content10" class="tab-content">
+      <p>Закрывающие действия</p>
+    </div>
+
+    <div id="s_content11" class="tab-content">
+            <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Дата выписки</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Сегодня</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Это фильтр. По умолчанию всегда сегодня стоит, но нужно иметь возможность поменять дату или за период посмотреть.
+        </span>
+    </div>
+
+    <br>
+
+    <h3>Оплата за запчасти</h3>
+    <p>У договора должен быть признак: оборудование или запчасти, программа выставляет значение в соответствии с типом договора, по которому пришли средства. Не обязательно располагать одно под другим, можно сделать
+        две вкладки, например. Мне просто не хочется это на сайте прописывать, чтобы не усложнять себе код.
+    </p>
+    <p>
+        Тут я предвижу ситуации, когда заказчик будет не соблюдать суммы в платежах. Нам надо дать возможность ОЛ как-то корректировать это. Например, запланировано 3 платежа: 30%, 60% и 10%. А заказчик оплатил только 20%.
+        В этом случае ОЛ продаж должен понять, какова ситуация. Например 10% придут завтра. Тогда надо под эту Продажу в ручном режиме увеличить кол-во оплат (условия оплаты) на фактически реализуемые.
+    </p>
+
+       <table border="1">
+        <tr>
+            <th>Номер заказа</th><th>Дата поступления</th><th>Заказчик</th><th>Поставщик</th><th>Ответственное лицо</th><th>Тип поставки</th><th>Отгрузка товара</th>
+            <th>Условия оплаты заказчика</th><th>% поступления от общей суммы продажи</th><th>Поступило средств, руб</th><th>Сумма к оплате поставщику в валюте</th>
+            <th>Валюта</th><th>Очередность платежа с заказчиком</th><th>Условия оплаты поставщику</th><th>Уже оплачено поставщику на данный момент</th>
+            <th>Сумма закупа в валюте</th><th>Очередность платежа общая поставщик</th><th>Покупаем валюту?</th><th>Комментарий</th>
+        </tr>
+        <tr>
+            <td>Подгружается из соответствующего заказа, который относится к этой спецификации</td>
+            <td>Информация подгружается из 1С:Бухгалтерия, после нажатия бухгалтером кнопки "Отправить отчет", кнопку необходимо сделать в 1С:Бухгалтерия.</td>
+            <td>Информация подгружается из 1С:Бухгалтерия, поле - "Контрагент"</td>
+            <td>Информацию можно взять, например, связав документ, по которому пришла оплата с заказом (снабженец же указывает поставщика) - или еще откуда-то</td>
+            <td>Подгружается ОЛ отдела Продаж, это тот, кто вносил изначальный запрос от заказчика</td>
+            <td>Подгружается 1 из 3 вариантов:
+                <br>
+                - на склад, 
+                <br>
+                - под заказ,
+                <br>
+                - со склада заказчику.
+                <br>
+                Если заказчиком указан "Гофромашины Премиум" - это поставка "на склад".
+                <br>
+                Если товар отгружается из скласких запасов и мы не закупаем его у поставщиков (за границей или в России) - это поставка "со склада заказчику".
+                <br>
+                Если товар закупается, то это "под заказ".
+            </td>
+            <td>Должна идти проверка огрузили ли мы товар по данному заказу или нет и присваиваться значение: "Отгружен" или "Не отгружен"</td>
+            <td>Подгружаются условия оплаты по данному заказу.</td>
+            <td>Указывается сколько % от суммы продажи составляет текущее поступление.</td>
+            <td>Подгружается поступившая в рублях сумма (графа "Поступило" в 1С: Бухгалтерия).</td>
+            <td>У Продаж и ВЭД должна быть возможность вручную ее менять. По умолчанию пусть проставляется сумма исходящего платежа поставщику, по очередности соответствующа входящему от заказчика.
+                Обычно у нас зеркальные условия. А наши Продажи и ВЭД будут проверять корректность внесенного глазами и, если что, менять. Для отгрузок со склада тут всегда пусто, тк закупать товар не надо.
+                Если с поставщиком 100% предоплата, то вся сумма вставляется в первое поступление от заказчика, а в последующих идет 0.
+            </td>
+            <td>Если отгрузка со склада заказчику - поле пустое, иначе из спецификации с поставщиком.</td>
+            <td>Берем порядковый номер платежа далее ставим "из" и далее общее кол-во платежей с заказчиком по сделке. Должна быть возможность менять вручную.</td>
+            <td>Подгружается автоматически из спецификации. Если "Тип поставки" = "Со склада заказчику", то поле остается пустым.</td>
+            <td>Подгружается сумма уже оплаченных платежей. Если "Тип поставки" = "Со склада заказчику", то поле остается пустым.</td>
+            <td>Подгружается автоматически из спецификации. Если "Тип поставки" = "Со склада заказчику", то поле остается пустым.</td>
+            <td>2</td>
+            <td>Да/Нет</td>
+            <td>мы можем сделать так, чтобы помимо комментария в этом поле отражалось, кто его писал? Если нет попросим подписываться тех, кто пишет.</td>
+        </tr>
+        <tr>
+            <td>ГПUT-000333</td>
+            <td>15.07.2026</td>
+            <td>Л-ПАК</td>
+            <td>EMBA</td>
+            <td>Сергей Передрий</td>
+            <td>Со склада заказчику</td>
+            <td>Отгружен</td>
+            <td>100% постполата в течение 10 рабочих дней после отгрузки товара продавцом.</td>
+            <td>100%</td>
+            <td>650 400.00</td>
+            <td></td>
+            <td></td>
+            <td>1 из 1</td>
+            <td></td>
+            <td></td>
+            <td>2</td>
+            <td>2</td>
+            <td>Нет</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>ГПUT-000122</td>
+            <td>15.07.2026</td>
+            <td>КАРТОН-ТАРА</td>
+            <td>LLY</td>
+            <td>Юрий Зуев</td>
+            <td>Под заказ</td>
+            <td>Не отгружен</td>
+            <td>1. 30% оплата в течение 5 дней после подписания спецификации
+                <br>
+                2. 70% оплата перед отгрузкой товара со склада продавца
+            </td>
+            <td>30%</td>
+            <td>30 000.00</td>
+            <td>2 000</td>
+            <td>CNY</td>
+            <td>1 из 2</td>
+            <td>100% предоплата в течение 5 рабочих дней с даты спецификации</td>
+            <td></td>
+            <td></td>
+            <td>2 000</td>
+            <td>Нет</td>
+            <td>Юрий: Валюту прошу купить после моего сообщения в Битриксе.</td>
+        </tr>
+    </table>
+
+    <h3>Оплата за оборудование</h3>
+
+    <p>Тут простая выгрузка для информации.</p>
+
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Дата выписки</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Сегодня</span>
+            </div>
+        </div>
+<br>
+     <table border="1">
+        <tr>
+            <th>Дата поступления</th>
+            <th>Заказчик</th>
+            <th>Номер договора с заказчиком</th>
+            <th>Поступило средств, руб</th>
+        </tr>
+        <tr>
+            <td>15.07.2026</td>
+            <td>Л-ПАК</td>
+            <td>О-155</td>
+            <td>2 650 400.00</td>
+        </tr>
+    </table>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- OUTER: BUH -->
+<div id="outerContentBuh" class="outer-content tab-content">
+  <div style="padding:0;">
+    <div class="inner-tabs">
+<input type="radio" name="innerTabsBuh" id="b_tab0" checked>
+<label for="b_tab0">Общий обзор задач</label>
+
+<input type="radio" name="innerTabsBuh" id="b_tab1">
+<label for="b_tab1">Оплатить</label>
+
+<input type="radio" name="innerTabsBuh" id="b_tab2">
+<label for="b_tab2">Оплата ушла от нас</label>
+
+<input type="radio" name="innerTabsBuh" id="b_tab3">
+<label for="b_tab3">Оплата получена контрагентом</label>
+
+<input type="radio" name="innerTabsBuh" id="b_tab4">
+<label for="b_tab4">Оплата получена нами</label>
 
 
-<div id="content0" class="tab-content">
+
+<div id="b_content0" class="tab-content active">
     <table border="1">
         <tr>
-            <th>Номер заказа</th>
+            <th>Номер </th>
             <th>Ответственный</th>
             <th>Постановщик</th>
             <th>Заказчик</th>
             <th>Статус</th>
         </tr>
         <tr>
-            <td>ГПUT-000001</td>
-            <td>Литвинова (столбец есть только у руководителей, у исполнителей тут отражаются только те задачи, по которым они ответственные)</td>
+            <td>POSP-000004</td>
+            <td>Воронина (столбец есть только у руководителей, у исполнителей тут отражаются только те задачи, по которым они ответственные)</td>
             <td>Круглов Андрей</td>
             <td>Л-ПАК</td>
-            <td><label for="tab1" class="tab-link">Предварительный расчет ССТ</label></td>
+            <td><label for="b_tab1" class="tab-link">Оплатить</label></td>
         </tr>
         <tr>
-            <td>ГПUT-000002</td>
-            <td>Литвинова</td>
+            <td>UTNO-000001</td>
+            <td>Кравчук</td>
             <td>Круглов Андрей</td>
             <td>Л-ПАК</td>
-            <td><label for="tab6" class="tab-link">ТО</label></td>
+            <td><label for="b_tab2" class="tab-link">Оплата ушла от нас</label></td>
         </tr>
         <tr>
-            <td>ГПUT-000003</td>
-            <td>Литвинова</td>
+            <td>POSP-000011</td>
+            <td>Кравчук</td>
             <td>Круглов Андрей</td>
             <td>Архбум Воронеж</td>
-            <td><label for="tab4" class="tab-link">Отгрузка</label></td>
+            <td><label for="b_tab3" class="tab-link">Оплата получена</label></td>
         </tr>
          <tr>
-            <td>ГПUT-000004</td>
-            <td>Литвинова</td>
+            <td>UTNO-000021</td>
+            <td>Воронина</td>
             <td>Круглов Андрей</td>
             <td>ППГК</td>
-            <td><label for="tab4" class="tab-link">Отгрузка</label></td>
+            <td><label for="b_tab1" class="tab-link">Оплатить</label></td>
         </tr>
     </table>
 </div>
 
-<div id="content1" class="tab-content">
+<div id="b_content1" class="tab-content">
     <table border="1">
-        <tr><th>Номер заказа</th><th>Постановщик</th><th>Заказчик</th></tr>
-        <tr><td>ГПUT-000001</td><td>Круглов Андрей</td><td>Л-ПАК</td></tr>
-        <tr><td>ГПUT-000002</td><td>Круглов Андрей</td><td>Л-ПАК</td></tr>
-        <tr><td>ГПUT-000003</td><td>Круглов Андрей</td><td>Архбум Воронеж</td></tr>
-        <tr><td>ГПUT-000004</td><td>Круглов Андрей</td><td>ППГК</td></tr>
+        <tr><th>ID</th><th>Категория</th><th>Сумма</th><th>Валюта</th><th>Комментарий</th></tr>
+        <tr><td><a href="./BUUT-000001.html">ГПUT-000001</a></td><td>ВЭД</td><td>1000</td><td>USD</td><td>Срочная оплата</td></tr>
+        <tr><td>ГПUT-000002</td><td>ВЭД</td><td>10 000</td><td>USD</td><td></td></tr>
+        <tr><td>ГПUT-000003</td><td>ВЭД</td><td>50 000</td><td>USD</td><td></td></tr>
+        <tr><td>ГПUT-000004</td><td>ВЭД</td><td>100</td><td>USD</td><td></td></tr>
     </table>
 
     <div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
@@ -129,134 +484,436 @@ label {
 </div>
 </div>
 
-<div id="content2" class="tab-content">
+<div id="b_content2" class="tab-content">
     <table border="1">
-        <tr>
-            <!-- ID закупки – уникальный номер, который присваивается сделке по закупке. В одном ID закупки может содержаться несколько заказов для одного и того же поставщика. -->
-            <th>ID закупки</th>
-            <th>Продавец</th>
-            <th>Поставщик</th>
-            <th>Заказчик</th>
-            <th>Статус</th>
-            <th>Комментарий</th>
-        </tr>
-                        <tr>
-            <!-- PO - "purchase order", SP - "spare parts" -->
-            <td>POSP-000004</td>
-            <td>НЕ ВЫБРАНО</td>
-            <td>Emmepi Group</td>
-            <td>Л-ПАК</td>
-            <td>Выбрать документ и продавца</td>
-            <td>Взять в работу после ответа Андрея</td>
-        </tr>
-        <tr>
-            <!-- PO - "purchase order", SP - "spare parts" -->
-            <td>POSP-000001</td>
-            <td>Godswill</td>
-            <td>Godswill</td>
-            <td>Алтайтара</td>
-            <td>Создание контракта</td>
-            <td></td>
-        </tr>
-                <tr>
-            <!-- PO - "purchase order", SP - "spare parts" -->
-            <td>POSP-000002</td>
-            <td>Horsebridge</td>
-            <td>FAS</td>
-            <td>Норма-Пак</td>
-            <td>Создание спецификации</td>
-            <td></td>
-        </tr>
-                                <tr>
-            <td>POSP-000006</td>
-            <td>Chinese SME1</td>
-            <td>Chinese SME1</td>
-            <td>Нурек</td>
-            <td>Создание проформы</td>
-            <td></td>
-        </tr>
-                <tr>
-            <!-- PO - "purchase order", SP - "spare parts" -->
-            <td>POSP-000003</td>
-            <td>Импорт Логистика</td>
-            <td>Techno Engineering SRL</td>
-            <td>ППГК</td>
-            <td>Оплата: в работе у бухаглтерии</td>
-            <td></td>
-        </tr>
-
-                <tr>
-            <!-- PO - "purchase order", SP - "spare parts" -->
-            <td>POSP-000005</td>
-            <td>Полиграфснаб</td>
-            <td>Venture</td>
-            <td>Л-ПАК Кашира</td>
-            <td>Оплата: ушел в рейс</td>
-            <td></td>
-        </tr>
-
+              <tr><th>ID</th><th>Категория</th><th>Сумма</th><th>Валюта</th><th>Комментарий</th></tr>
+        <tr><td>BUUT-000009</td><td>ВЭД</td><td>1000</td><td>USD</td><td>Срочная оплата</td></tr>
+        <tr><td>BUUT-000010</td><td>ВЭД</td><td>10 000</td><td>USD</td><td></td></tr>
+        <tr><td>BUUT-000011</td><td>ВЭД</td><td>50 000</td><td>USD</td><td></td></tr>
+        <tr><td>BUUT-000012</td><td>ВЭД</td><td>100</td><td>USD</td><td></td></tr>
     </table>
 </div>
 
-
-<div id="content3" class="tab-content">
+<div id="b_content3" class="tab-content">
     <table border="1">
-        <tr><th>Product</th><th>Price</th>
-        </tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+              <tr><th>ID</th><th>Категория</th><th>Сумма</th><th>Валюта</th><th>Комментарий</th></tr>
+        <tr><td>BUUT-000005</td><td>ВЭД</td><td>1000</td><td>USD</td><td>Срочная оплата</td></tr>
+        <tr><td>BUUT-000006</td><td>ВЭД</td><td>10 000</td><td>USD</td><td></td></tr>
+        <tr><td>BUUT-000007</td><td>ВЭД</td><td>50 000</td><td>USD</td><td></td></tr>
+        <tr><td>BUUT-000008</td><td>ВЭД</td><td>100</td><td>USD</td><td></td></tr>
+    </table>
 </div>
 
+<div id="b_content4" class="tab-content">
+    <p>Нужно сделать кнопку в 1С Бухгалтерия, чтобы оттуда сюда выгружалась информация.
+        <br>
+        При этом она не сразу подгружается сюда, а идет следующим маршрутом:
+        <br>
+        1. Бухгалтер нажимает кнопку "Направить в 1С Управление"
+        <br>
+        2. Все оплаты, 
+    </p>
 
-<div id="content4" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
-<div id="content5" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
-<div id="content6" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
-<div id="content7" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
-<div id="content8" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
-<div id="content9" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
-<div id="content10" class="tab-content"><table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table></div>
+
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="outerContentGM" class="outer-content tab-content">
+  <div style="padding:0;">
+    <h3>Генеральный директор</h3>
+  </div>
+  <div class="inner-tabs">
+<input type="radio" name="innerTabsGM" id="g_tab0" checked>
+<label for="g_tab0">Поступления средств</label>
+
+<br>
+<br>
+
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Дата выписки</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Сегодня</span>
+            </div>
+        </div>
+
+    <h3>Оплата за запчасти</h3>
+
+       <table border="1">
+        <tr>
+            <th>Номер заказа</th><th>Дата поступления</th><th>Заказчик</th><th>Поставщик</th><th>Ответственное лицо</th><th>Тип поставки</th><th>Отгрузка товара</th>
+            <th>Условия оплаты заказчика</th><th>% поступления от общей суммы продажи</th><th>Поступило средств, руб</th><th>Сумма к оплате поставщику в валюте</th>
+            <th>Валюта</th><th>Очередность платежа с заказчиком</th><th>Условия оплаты поставщику</th><th>Уже оплачено поставщику на данный момент</th>
+            <th>Сумма закупа в валюте</th><th>Очередность платежа общая поставщик</th><th>Покупаем валюту?</th><th>Комментарий</th>
+        </tr>
+
+        <tr>
+            <td>ГПUT-000333</td>
+            <td>15.07.2026</td>
+            <td>Л-ПАК</td>
+            <td>EMBA</td>
+            <td>Сергей Передрий</td>
+            <td>Со склада заказчику</td>
+            <td>Отгружен</td>
+            <td>100% постполата в течение 10 рабочих дней после отгрузки товара продавцом.</td>
+            <td>100%</td>
+            <td>650 400.00</td>
+            <td></td>
+            <td></td>
+            <td>1 из 1</td>
+            <td></td>
+            <td></td>
+            <td>2</td>
+            <td>2</td>
+            <td>Нет</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>ГПUT-000122</td>
+            <td>15.07.2026</td>
+            <td>КАРТОН-ТАРА</td>
+            <td>LLY</td>
+            <td>Юрий Зуев</td>
+            <td>Под заказ</td>
+            <td>Не отгружен</td>
+            <td>1. 30% оплата в течение 5 дней после подписания спецификации
+                <br>
+                2. 70% оплата перед отгрузкой товара со склада продавца
+            </td>
+            <td>30%</td>
+            <td>30 000.00</td>
+            <td>2 000</td>
+            <td>CNY</td>
+            <td>1 из 2</td>
+            <td>100% предоплата в течение 5 рабочих дней с даты спецификации</td>
+            <td></td>
+            <td></td>
+            <td>2 000</td>
+            <td>Нет</td>
+            <td>Юрий: Валюту прошу купить после моего сообщения в Битриксе.</td>
+        </tr>
+    </table>
+
+    <h3>Оплата за оборудование</h3>
+
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Дата выписки</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Сегодня</span>
+            </div>
+        </div>
+
+<br>
+
+     <table border="1">
+        <tr>
+            <th>Дата поступления</th>
+            <th>Заказчик</th>
+            <th>Номер договора с заказчиком</th>
+            <th>Поступило средств, руб</th>
+        </tr>
+        <tr>
+            <td>15.07.2026</td>
+            <td>Л-ПАК</td>
+            <td>О-155</td>
+            <td>2 650 400.00</td>
+        </tr>
+    </table>
+
+    </div>
+    </div>
+
+
+<div id="outerContentDO" class="outer-content tab-content">
+  <div style="padding:0;">
+    <h3>Исполнительный директор</h3>
+  </div>
+  <div class="inner-tabs">
+<input type="radio" name="innerTabsDO" id="o_tab0" checked>
+<label for="o_tab0">Поступления средств</label>
+
+<br>
+<br>
+
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Дата выписки</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Сегодня</span>
+            </div>
+        </div>
+
+    <h3>Оплата за запчасти</h3>
+
+       <table border="1">
+        <tr>
+            <th>Номер заказа</th><th>Дата поступления</th><th>Заказчик</th><th>Поставщик</th><th>Ответственное лицо</th><th>Тип поставки</th><th>Отгрузка товара</th>
+            <th>Условия оплаты заказчика</th><th>% поступления от общей суммы продажи</th><th>Поступило средств, руб</th><th>Сумма к оплате поставщику в валюте</th>
+            <th>Валюта</th><th>Очередность платежа с заказчиком</th><th>Условия оплаты поставщику</th><th>Уже оплачено поставщику на данный момент</th>
+            <th>Сумма закупа в валюте</th><th>Очередность платежа общая поставщик</th><th>Покупаем валюту?</th><th>Комментарий</th>
+        </tr>
+
+        <tr>
+            <td>ГПUT-000333</td>
+            <td>15.07.2026</td>
+            <td>Л-ПАК</td>
+            <td>EMBA</td>
+            <td>Сергей Передрий</td>
+            <td>Со склада заказчику</td>
+            <td>Отгружен</td>
+            <td>100% постполата в течение 10 рабочих дней после отгрузки товара продавцом.</td>
+            <td>100%</td>
+            <td>650 400.00</td>
+            <td></td>
+            <td></td>
+            <td>1 из 1</td>
+            <td></td>
+            <td></td>
+            <td>2</td>
+            <td>2</td>
+            <td>Нет</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>ГПUT-000122</td>
+            <td>15.07.2026</td>
+            <td>КАРТОН-ТАРА</td>
+            <td>LLY</td>
+            <td>Юрий Зуев</td>
+            <td>Под заказ</td>
+            <td>Не отгружен</td>
+            <td>1. 30% оплата в течение 5 дней после подписания спецификации
+                <br>
+                2. 70% оплата перед отгрузкой товара со склада продавца
+            </td>
+            <td>30%</td>
+            <td>30 000.00</td>
+            <td>2 000</td>
+            <td>CNY</td>
+            <td>1 из 2</td>
+            <td>100% предоплата в течение 5 рабочих дней с даты спецификации</td>
+            <td></td>
+            <td></td>
+            <td>2 000</td>
+            <td>Нет</td>
+            <td>Юрий: Валюту прошу купить после моего сообщения в Битриксе.</td>
+        </tr>
+    </table>
+
+    <h3>Оплата за оборудование</h3>
+
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Дата выписки</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Сегодня</span>
+            </div>
+        </div>
+
+<br>
+
+     <table border="1">
+        <tr>
+            <th>Дата поступления</th>
+            <th>Заказчик</th>
+            <th>Номер договора с заказчиком</th>
+            <th>Поступило средств, руб</th>
+        </tr>
+        <tr>
+            <td>15.07.2026</td>
+            <td>Л-ПАК</td>
+            <td>О-155</td>
+            <td>2 650 400.00</td>
+        </tr>
+    </table>
+
+    </div>
+    </div>
+
+<div id="outerContentSales" class="outer-content tab-content">
+  <div style="padding:0;">
+    <h3>Продажи</h3>
+    <p>Текущие вкладки из 1С не добавляю. Эта вкладка идет в дополнение к текущим. Каждому ОЛ приходят только его поступления. Тут для примера указал поступления. Допустим,
+        ниже пример для ОЛ - Сергей Передрий.
+    </p>
+ </div>
+  <div class="inner-tabs">
+<input type="radio" name="innerTabsSales" id="p_tab0" checked>
+<label for="p_tab0">Поступления средств</label>
+
+<br>
+<br>
+
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Дата выписки</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Сегодня</span>
+            </div>
+        </div>
+
+    <h3>Оплата за запчасти</h3>
+
+       <table border="1">
+        <tr>
+            <th>Номер заказа</th><th>Дата поступления</th><th>Заказчик</th><th>Поставщик</th><th>Ответственное лицо</th><th>Тип поставки</th><th>Отгрузка товара</th>
+            <th>Условия оплаты заказчика</th><th>% поступления от общей суммы продажи</th><th>Поступило средств, руб</th><th>Сумма к оплате поставщику в валюте</th>
+            <th>Валюта</th><th>Очередность платежа с заказчиком</th><th>Условия оплаты поставщику</th><th>Уже оплачено поставщику на данный момент</th>
+            <th>Сумма закупа в валюте</th><th>Очередность платежа общая поставщик</th><th>Покупаем валюту?</th><th>Комментарий</th>
+        </tr>
+
+        <tr>
+            <td>ГПUT-000333</td>
+            <td>15.07.2026</td>
+            <td>Л-ПАК</td>
+            <td>EMBA</td>
+            <td>Сергей Передрий</td>
+            <td>Со склада заказчику</td>
+            <td>Отгружен</td>
+            <td>100% постполата в течение 10 рабочих дней после отгрузки товара продавцом.</td>
+            <td>100%</td>
+            <td>650 400.00</td>
+            <td></td>
+            <td></td>
+            <td>1 из 1</td>
+            <td></td>
+            <td></td>
+            <td>2</td>
+            <td>2</td>
+            <td>Нет</td>
+            <td></td>
+        </tr>
+    </table>
+
+    </div>
+    </div>
+
+<div id="outerContentZDPKV" class="outer-content tab-content">
+  <div style="padding:0;">
+    <h3>Заместитель директора по коммерческим вопросам</h3>
+    </div>
+    <div class="inner-tabs">
+<input type="radio" name="innerTabsZDPKV" id="z_tab0" checked>
+<label for="z_tab0">Поступления средств</label>
+
+    <h3>Оплата за оборудование</h3>
+
+    <p>Тут простая выгрузка для информации.</p>
+
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span class="field-label" style="font-weight: bold; color: #303133;">Дата выписки</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+            <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Сегодня</span>
+            </div>
+        </div>
+
+        <br>
+
+     <table border="1">
+        <tr>
+            <th>Дата поступления</th>
+            <th>Заказчик</th>
+            <th>Номер договора с заказчиком</th>
+            <th>Поступило средств, руб</th>
+        </tr>
+        <tr>
+            <td>15.07.2026</td>
+            <td>Л-ПАК</td>
+            <td>О-155</td>
+            <td>2 650 400.00</td>
+        </tr>
+    </table>
+
+    </div>
+    </div>
+
+<div id="outerContentOther" class="outer-content tab-content ">
+  <div style="padding:0;">
+    <h3>Прочее</h3>
+    <p>Добавить содержание</p>
+  </div>
+</div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const table = document.getElementById('content1');
-        const rows = table.getElementsByTagName('tr');
+  function initOuterTabs() {
+    const map = {
+      outerTabSupply: 'outerContentSupply',
+      outerTabBuh: 'outerContentBuh',
+      outerTabSales: 'outerContentSales',
+      outerTabGM: 'outerContentGM',
+      outerTabDO: 'outerContentDO',
+      outerTabZDPKV: 'outerContentZDPKV',
+      outerTabOther: 'outerContentOther'
+    };
 
-        for (let i = 1; i < rows.length; i++) {
-            const orderCell = rows[i].getElementsByTagName('td')[0];
-            
-            if (orderCell) {
-                const orderNumber = orderCell.textContent.trim();
-                const subPath = orderNumber.slice(2);
-                
-                const link = document.createElement('a');
-                // Added .html extension matching the physical filename
-                link.href = `./${subPath}.html`;
-                link.textContent = orderNumber;
-                
-                orderCell.textContent = '';
-                orderCell.appendChild(link);
-            }
-        }
-    });
-        document.addEventListener("DOMContentLoaded", () => {
-        const table = document.getElementById('content2');
-        const rows = table.getElementsByTagName('tr');
+    const allContents = Object.values(map);
 
-        for (let i = 1; i < rows.length; i++) {
-            const orderCell = rows[i].getElementsByTagName('td')[0];
-            
-            if (orderCell) {
-                const orderNumber = orderCell.textContent.trim();
-                const subPath = orderNumber;
-                
-                const link = document.createElement('a');
-                // Added .html extension matching the physical filename
-                link.href = `./${subPath}.html`;
-                link.textContent = orderNumber;
-                
-                orderCell.textContent = '';
-                orderCell.appendChild(link);
-            }
-        }
+    function updateOuter() {
+      const checked = document.querySelector('input[name="outerTabs"]:checked');
+      if (!checked) return;
+
+      const targetContentId = map[checked.id];
+      allContents.forEach(contentId => {
+        document.getElementById(contentId)?.classList.toggle('active', contentId === targetContentId);
+      });
+    }
+
+    document.querySelectorAll('input[name="outerTabs"]').forEach(radio => {
+      radio.addEventListener('change', updateOuter);
     });
+
+    updateOuter();
+  }
+
+  // Scope inner tabs to a specific outer container
+  function initInnerTabs({ containerId, radioName, contentPrefix, count }) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    for (let i = 0; i < count; i++) {
+      const radio = container.querySelector(`input[name="${radioName}"][id="${contentPrefix}_tab${i}"]`);
+      if (!radio) continue;
+
+      radio.addEventListener('change', () => {
+        for (let j = 0; j < count; j++) {
+          const el = document.getElementById(`${contentPrefix}_content${j}`);
+          el?.classList.toggle('active', j === i);
+        }
+      });
+    }
+
+    // set initial active according to checked radio
+    const checked = container.querySelector(`input[name="${radioName}"]:checked`);
+    if (checked) {
+      const id = checked.id; // e.g. s_tab0 or b_tab3
+      const n = Number(id.replace(/^[a-zA-Z]+_tab/, ''));
+      for (let j = 0; j < count; j++) {
+        const el = document.getElementById(`${contentPrefix}_content${j}`);
+        el?.classList.toggle('active', j === n);
+      }
+    }
+  }
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initOuterTabs();
+
+    initInnerTabs({
+      containerId: 'outerContentSupply',
+      radioName: 'innerTabsSupply',
+      contentPrefix: 's',
+      count: 12
+    });
+
+    initInnerTabs({
+      containerId: 'outerContentBuh',
+      radioName: 'innerTabsBuh',
+      contentPrefix: 'b',
+      count: 5
+    });
+
+    addGeneratedLinks();
+  });
 </script>
+
+
 </body>
 </html>

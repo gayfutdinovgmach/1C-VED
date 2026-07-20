@@ -1,0 +1,416 @@
+<!-- TOP LEVEL -->
+ <!-- Name for id = outerTabName, where Name is the tab name -->
+<input type="radio" name="outerTabs" id="outerTabSupply" checked>
+<label for="outerTabSupply">ВЭД</label>
+
+<input type="radio" name="outerTabs" id="outerTabBuh">
+<label for="outerTabBuh">Бухгалтерия</label>
+
+<input type="radio" name="outerTabs" id="outerTabGM">
+<label for="outerTabGM">Генеральный директор</label>
+
+<input type="radio" name="outerTabs" id="outerTabDO">
+<label for="outerTabDO">Исполнительный директор</label>
+
+<input type="radio" name="outerTabs" id="outerTabSales">
+<label for="outerTabSales">Продажи</label>
+
+<input type="radio" name="outerTabs" id="outerTabOther">
+<label for="outerTabOther">Прочее</label>
+
+<!-- OUTER: SUPPLY -->
+<div id="outerContentSupply" class="outer-content tab-content active">
+  <!-- INNER TABS (your existing page goes here) -->
+  <div class="inner-tabs">
+
+    <input type="radio" name="innerTabsSupply" id="s_tab0" checked>
+    <label for="s_tab0">Общий обзор задач</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab1">
+    <label for="s_tab1">Предварительный расчет ССТ</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab2">
+    <label for="s_tab2">Закупка</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab3">
+    <label for="s_tab3">Производство</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab4">
+    <label for="s_tab4">Отгрузка</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab5">
+    <label for="s_tab5">Доставка (до ТО)</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab6">
+    <label for="s_tab6">ТО</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab7">
+    <label for="s_tab7">Доставка (после ТО)</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab8">
+    <label for="s_tab8">Приемка наш склад</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab9">
+    <label for="s_tab9">Расчет ССТ</label>
+
+    <input type="radio" name="innerTabsSupply" id="s_tab10">
+    <label for="s_tab10">Закрывающие действия</label>
+
+    <div id="s_content0" class="tab-content active">
+      <table border="1">
+          <tr>
+              <th>Номер </th>
+              <th>Ответственный</th>
+              <th>Постановщик</th>
+              <th>Заказчик</th>
+              <th>Статус</th>
+          </tr>
+          <tr>
+              <td>ГПUT-000001</td>
+              <td>Литвинова (столбец есть только у руководителей, у исполнителей тут отражаются только те задачи, по которым они ответственные)</td>
+              <td>Круглов Андрей</td>
+              <td>Л-ПАК</td>
+              <td><label for="tab1" class="tab-link">Предварительный расчет ССТ</label></td>
+          </tr>
+          <tr>
+              <td>ГПUT-000002</td>
+              <td>Литвинова</td>
+              <td>Круглов Андрей</td>
+              <td>Л-ПАК</td>
+              <td><label for="tab6" class="tab-link">ТО</label></td>
+          </tr>
+          </tr>
+      </table>
+    </div>
+
+    <div id="s_content1" class="tab-content">
+      <table border="1">
+          <tr><th>Номер заказа</th><th>Постановщик</th><th>Заказчик</th></tr>
+          <tr><td>ГПUT-000001</td><td>Круглов Андрей</td><td>Л-ПАК</td></tr>
+      </table>
+
+      <div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+        <button type="button" id="calculate-btn" class="form-btn primary-btn">
+          Обновить
+        </button>
+      </div>
+    </div>
+
+    <div id="s_content2" class="tab-content">
+      <table border="1">
+          <tr>
+              <th>ID закупки</th>
+              <th>Продавец</th>
+              <th>Поставщик</th>
+              <th>Заказчик</th>
+              <th>Статус</th>
+              <th>Комментарий</th>
+          </tr>
+          <tr>
+              <td>POSP-000004</td>
+              <td>НЕ ВЫБРАНО</td>
+              <td>Emmepi Group</td>
+              <td>Л-ПАК</td>
+              <td>Выбрать документ и продавца</td>
+              <td>Взять в работу после ответа Андрея</td>
+          </tr>
+          <tr>
+              <td>POSP-000001</td>
+              <td>Godswill</td>
+              <td>Godswill</td>
+              <td>Алтайтара</td>
+              <td>Создание контракта</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>POSP-000002</td>
+              <td>Horsebridge</td>
+              <td>FAS</td>
+              <td>Норма-Пак</td>
+              <td>Создание спецификации</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>POSP-000006</td>
+              <td>Chinese SME1</td>
+              <td>Chinese SME1</td>
+              <td>Нурек</td>
+              <td>Создание проформы</td>
+              <td></td>
+          </tr>
+      </table>
+    </div>
+
+    <div id="s_content3" class="tab-content">
+      <table border="1">
+        <tr><th>Product</th><th>Price</th></tr>
+        <tr><td>Laptop</td><td>$1200</td></tr>
+      </table>
+    </div>
+
+    <div id="s_content4" class="tab-content">
+      <table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+    </div>
+
+    <div id="s_content5" class="tab-content">
+      <table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+    </div>
+
+    <div id="s_content6" class="tab-content">
+      <table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+    </div>
+
+    <div id="s_content7" class="tab-content">
+      <table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+    </div>
+
+    <div id="s_content8" class="tab-content">
+      <table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+    </div>
+
+    <div id="s_content9" class="tab-content">
+      <table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+    </div>
+
+    <div id="s_content10" class="tab-content">
+      <table border="1"><tr><th>Product</th><th>Price</th></tr><tr><td>Laptop</td><td>$1200</td></tr></table>
+    </div>
+
+  </div>
+</div>
+
+<!-- OUTER: BUH -->
+<div id="outerContentBuh" class="outer-content tab-content">
+  <div style="padding:0;">
+    <div class="inner-tabs">
+<input type="radio" name="innerTabsBuh" id="b_tab0" checked>
+<label for="b_tab0">Общий обзор задач</label>
+
+<input type="radio" name="innerTabsBuh" id="b_tab1">
+<label for="b_tab1">Оплатить</label>
+
+<input type="radio" name="innerTabsBuh" id="b_tab2">
+<label for="b_tab2">Оплата ушла от нас</label>
+
+<input type="radio" name="innerTabsBuh" id="b_tab3">
+<label for="b_tab3">Оплата получена контрагентом</label>
+
+<input type="radio" name="innerTabsBuh" id="b_tab4">
+<label for="b_tab4">Оплата получена нами</label>
+
+
+
+<div id="b_content0" class="tab-content active">
+    <table border="1">
+        <tr>
+            <th>Номер </th>
+            <th>Ответственный</th>
+            <th>Постановщик</th>
+            <th>Заказчик</th>
+            <th>Статус</th>
+        </tr>
+        <tr>
+            <td>POSP-000004</td>
+            <td>Воронина (столбец есть только у руководителей, у исполнителей тут отражаются только те задачи, по которым они ответственные)</td>
+            <td>Круглов Андрей</td>
+            <td>Л-ПАК</td>
+            <td><label for="b_tab1" class="tab-link">Оплатить</label></td>
+        </tr>
+    </table>
+</div>
+
+<div id="b_content1" class="tab-content">
+    <table border="1">
+        <tr><th>ID</th><th>Категория</th><th>Сумма</th><th>Валюта</th><th>Комментарий</th></tr>
+        <tr><td>BUUT-000001</td><td>ВЭД</td><td>1000</td><td>USD</td><td>Срочная оплата</td></tr>
+    </table>
+
+    <div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+    
+    <button type="button" id="calculate-btn" class="form-btn primary-btn">
+        Обновить
+    </button>
+    
+</div>
+</div>
+
+<div id="b_content2" class="tab-content">
+    <table border="1">
+              <tr><th>ID</th><th>Категория</th><th>Сумма</th><th>Валюта</th><th>Комментарий</th></tr>
+        <tr><td>BUUT-000009</td><td>ВЭД</td><td>1000</td><td>USD</td><td>Срочная оплата</td></tr>
+        <tr><td>BUUT-000010</td><td>ВЭД</td><td>10 000</td><td>USD</td><td></td></tr>
+    </table>
+</div>
+
+<div id="b_content3" class="tab-content">
+    <table border="1">
+              <tr><th>ID</th><th>Категория</th><th>Сумма</th><th>Валюта</th><th>Комментарий</th></tr>
+        <tr><td>BUUT-000005</td><td>ВЭД</td><td>1000</td><td>USD</td><td>Срочная оплата</td></tr>
+        <tr><td>BUUT-000006</td><td>ВЭД</td><td>10 000</td><td>USD</td><td></td></tr>
+    </table>
+</div>
+
+<div id="b_content4" class="tab-content">
+    <p>Нужно сделать кнопку в 1С Бухгалтерия, чтобы оттуда сюда выгружалась информация.
+        <br>
+        При этом она не сразу подгружается сюда, а идет следующим маршрутом:
+        <br>
+        1. Бухгалтер нажимает кнопку "Направить в 1С Управление"
+        <br>
+        2. Все оплаты, 
+    </p>
+
+
+</div>
+    </div>
+  </div>
+</div>
+
+<div id="outerContentGM" class="outer-content tab-content">
+  <div style="padding:0;">
+    <h3>Генеральный директор</h3>
+    <p>Добавить содержание.</p>
+  </div>
+</div>
+
+<div id="outerContentDO" class="outer-content tab-content">
+  <div style="padding:0;">
+    <h3>Исполнительный директор</h3>
+    <p>Добавить содержание.</p>
+  </div>
+</div>
+
+
+<script>
+  function initOuterTabs() {
+    const map = {
+      outerTabSupply: 'outerContentSupply',
+      outerTabBuh: 'outerContentBuh',
+      outerTabSales: 'outerContentSales',
+      outerTabGM: 'outerContentGM',
+      outerTabDO: 'outerContentDO',
+      outerTabOther: 'outerContentOther'
+    };
+
+    const allContents = Object.values(map);
+
+    function updateOuter() {
+      const checked = document.querySelector('input[name="outerTabs"]:checked');
+      if (!checked) return;
+
+      const targetContentId = map[checked.id];
+      allContents.forEach(contentId => {
+        document.getElementById(contentId)?.classList.toggle('active', contentId === targetContentId);
+      });
+    }
+
+    document.querySelectorAll('input[name="outerTabs"]').forEach(radio => {
+      radio.addEventListener('change', updateOuter);
+    });
+
+    updateOuter();
+  }
+
+  // Scope inner tabs to a specific outer container
+  function initInnerTabs({ containerId, radioName, contentPrefix, count }) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    for (let i = 0; i < count; i++) {
+      const radio = container.querySelector(`input[name="${radioName}"][id="${contentPrefix}_tab${i}"]`);
+      if (!radio) continue;
+
+      radio.addEventListener('change', () => {
+        for (let j = 0; j < count; j++) {
+          const el = document.getElementById(`${contentPrefix}_content${j}`);
+          el?.classList.toggle('active', j === i);
+        }
+      });
+    }
+
+    // set initial active according to checked radio
+    const checked = container.querySelector(`input[name="${radioName}"]:checked`);
+    if (checked) {
+      const id = checked.id; // e.g. s_tab0 or b_tab3
+      const n = Number(id.replace(/^[a-zA-Z]+_tab/, ''));
+      for (let j = 0; j < count; j++) {
+        const el = document.getElementById(`${contentPrefix}_content${j}`);
+        el?.classList.toggle('active', j === n);
+      }
+    }
+  }
+
+  function addGeneratedLinks() {
+    // -------- SUPPLY (existing behavior) --------
+    const supplyRoot = document.getElementById('outerContentSupply');
+    if (supplyRoot) {
+      const content1 = supplyRoot.querySelector('#s_content1'); // "Предварительный..." у тебя раньше это с_content1
+      if (content1) {
+        const table = content1.querySelector('table');
+        const rows = table ? table.getElementsByTagName('tr') : [];
+        for (let i = 1; i < rows.length; i++) {
+          const orderCell = rows[i].getElementsByTagName('td')[0];
+          if (!orderCell) continue;
+
+          const orderNumber = orderCell.textContent.trim();
+          const subPath = orderNumber.slice(2);
+
+          const link = document.createElement('a');
+          link.href = `./${subPath}.html`;
+          link.textContent = orderNumber;
+
+          orderCell.textContent = '';
+          orderCell.appendChild(link);
+        }
+      }
+    }
+
+    // -------- BUH: "Оплатить" --------
+    const buhRoot = document.getElementById('outerContentBuh');
+    if (buhRoot) {
+      const payContent = buhRoot.querySelector('#b_content1'); // "Оплатить" subtab
+      if (payContent) {
+        const table = payContent.querySelector('table');
+        const rows = table ? table.getElementsByTagName('tr') : [];
+
+        for (let i = 1; i < rows.length; i++) {
+          const idCell = rows[i].getElementsByTagName('td')[0]; // BUUT-000001
+          if (!idCell) continue;
+
+          const orderNumber = idCell.textContent.trim();
+
+          // If your BUH html filenames are like BUUT-000001.html:
+          // (change this mapping if your files are named differently)
+          const subPath = orderNumber; // or orderNumber.slice(2)
+
+          const link = document.createElement('a');
+          link.href = `./${subPath}.html`;
+          link.textContent = orderNumber;
+
+          idCell.textContent = '';
+          idCell.appendChild(link);
+        }
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    initOuterTabs();
+
+    initInnerTabs({
+      containerId: 'outerContentSupply',
+      radioName: 'innerTabsSupply',
+      contentPrefix: 's',
+      count: 11
+    });
+
+    initInnerTabs({
+      containerId: 'outerContentBuh',
+      radioName: 'innerTabsBuh',
+      contentPrefix: 'b',
+      count: 5
+    });
+
+    addGeneratedLinks();
+  });
+</script>

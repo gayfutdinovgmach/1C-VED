@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles1.css">
+
+</head>
+<body>
+   <p>Логика формирования названия: [Статус] — Заказ [№ Заказа], Продавец: [Наименование], Поставщик: [Наименование], Заказчик: [Наименование]</p>
+    <h1>Оплата: отправить на оплату — Заказ POSP-000007, Продавец: Rodicut, Поставщик: Rodicut, Заказчик: Гофромашины Премиум.</h1>
+
+<p>В этом интерфейсе / на этом этапе ответственное лицо прилагает / проверяет итоговые версии документов и далее отправляет их для оплаты бухгалтерией.
+</p>
+
+<h3>Контракт</h3>
+
+      <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Подгрузить контракт редактируемый файл</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Подгружается итоговая версия документа. Давай сделаем проверку: все значения, которые мы генерируем в редакторе
+            должны совпасть с тем, что уже ранее было внесено. Если нет, желательно чтобы система явно выдала, что не совпало и попросила изменить это. Ну или просто общее сообщение сделать.
+            Далее человек уже сам решит: либо откатить в документе как было, либо зайти в редактирование данных для контракта. Соответственно, нам нужна кнопка "Назад", чтобы вернуться на этап создания Контракта,
+            либо сделать это возможным тут. Можем обсудить, какой подход лучше.
+        </span>
+    </div>
+
+          <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Подгрузить контракт подписанный файл</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Подгружается итоговая версия документа. Формат: pdf. Другие не давать подгружать.</span>
+    </div>
+
+<h3>Спецификация</h3>
+
+
+
+          <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Подгрузить спецификацию подписанный файл</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Подгружается итоговая версия документа. Формат: pdf. Другие не давать подгружать.
+        </span>
+    </div>
+
+<h3>Проформа</h3>
+
+          <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Подгрузить проформу подписанный файл</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">ОЛ по идее уже подгрузил проформу на этапе проформы. Тут подгружать только если изменилась.
+            Либо вообще сделать просто возможность смотреть, что подгружено, а для подгрузки нового возвращаться на предыдущий этап.
+        </span>
+    </div>
+
+
+
+          <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Подгрузить проформу редактируемый файл</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">ОЛ по идее уже подгрузил проформу на этапе проформы. Тут подгружать только если изменилась.
+            Либо вообще сделать просто возможность смотреть, что подгружено, а для подгрузки нового возвращаться на предыдущий этап.
+        </span>
+    </div>
+
+    <h3>Платеж № 1</h3>
+
+              <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Условия оплаты</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Подгружаются полные условия оплаты</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Это для информации в целом о платежах по закупке.
+        </span>
+    </div>
+
+              <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Сумма платежа</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Например, 10 000.00</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Подгружается согласно условиям оплаты.
+        </span>
+    </div>
+
+              <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Валюта платежа</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Например, CNY</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Подгружается согласно условиям оплаты.
+        </span>
+    </div>
+
+<div class="form-row">
+    <span class="form-title">Тип оплаты</span>
+    
+        <select id="payment-type" class="styled-select">
+            <!-- Этот вариант теперь доступен для выбора в любой момент -->
+            <option value="">(выберите тип оплаты)</option>
+            <option value="agent">Агент (А7)</option>
+            <option value="direct">Прямая</option>
+            <option value="kazakhstan">Казахстан</option>
+            <option value="dalian">Далянь (Ирина)</option>
+        </select>
+        <span class="field-value" style="color: #909399; font-size: 14px;">ОЛ выбирает тип оплаты</span>
+</div>    
+
+    <button type="button" id="calculate-btn" class="form-btn primary-btn">
+        На предыдущий этап
+    </button>
+
+    <button type="button" id="calculate-btn" class="form-btn primary-btn">
+        На оплату
+    </button>
+
+<p>
+    При нажатии кнопки "На оплату" данный заказ уходит ответственному лицу по следующей логике:
+    <br>
+    Если выбран тип оплаты - Агент, то оплата не уходит в бухгалтерию, а передается исполнительному директору на обработку.
+    <br>
+    В остальных случаях оплата уходит в бухгалтерию.
+    В данный момент у нас есть человек, который конкретно отвечает за оплаты за границу.
+    Нам надо будет сделать какую-то пометку пользователю, который будет за это отвечать. Сейчас за это отвечает бухгалтер Марина.
+</p>
+
+</body>
+</html>

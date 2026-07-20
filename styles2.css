@@ -1,0 +1,130 @@
+/* ========= Base ========= */
+body { 
+  font-family: Arial, sans-serif; 
+  padding: 20px; 
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.hidden-field { display: none !important; }
+
+/* ========= Outer/Inner Tabs (radio-based) ========= */
+
+/* hide radios */
+input[type="radio"] { display: none; }
+
+/* clickable tab labels */
+label {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #eee;
+  cursor: pointer;
+}
+
+/* visual style for the tab buttons row (optional, keep if you use it) */
+.tab-buttons {
+  display: flex;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 15px;
+}
+
+/* (optional) if you still use .tab-btn somewhere */
+.tab-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  margin-right: 5px;
+  border-radius: 4px 4px 0 0;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.tab-btn:hover { background: #ddd; }
+
+/* active coloring for OUTER tabs */
+#outerTabSupply:checked + label,
+#outerTabBuh:checked + label,
+#outerTabSales:checked + label,
+#outerTabGM:checked + label,
+#outerTabDO:checked + label,
+#outerTabOther:checked + label {
+  background: #007bff;
+  color: #fff;
+}
+
+/* active content helper */
+.tab-content {
+  display: none;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 0 4px 4px 4px;
+}
+
+.tab-content.active { display: block; }
+
+/* ========= Tables ========= */
+.table-wrapper { overflow-x: auto; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #fff;
+  font-size: 13px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+th {
+  white-space: nowrap;
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) { background-color: #fafafa; }
+
+/* ========= Buttons (keep your existing button section if you want) ========= */
+.form-btn {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-btn:active { transform: translateY(1px); }
+
+.primary-btn {
+  background-color: #303133;
+  color: #ffffff;
+  border: 1px solid #303133;
+}
+
+.primary-btn:hover {
+  background-color: #4a4c50;
+  border-color: #4a4c50;
+}
+
+.secondary-btn {
+  background-color: #67c23a;
+  color: #ffffff;
+  border: 1px solid #67c23a;
+}
+
+.secondary-btn:hover {
+  background-color: #85ce61;
+  border-color: #85ce61;
+}
