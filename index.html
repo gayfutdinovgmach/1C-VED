@@ -424,6 +424,9 @@ input[name="outerTabs"] + label {
 <input type="radio" name="innerTabsBuh" id="b_tab4">
 <label for="b_tab4">Оплата получена нами</label>
 
+<input type="radio" name="innerTabsBuh" id="b_tab5">
+<label for="b_tab5">Купить валюту</label>
+
 
 
 <div id="b_content0" class="tab-content active">
@@ -509,13 +512,24 @@ input[name="outerTabs"] + label {
         <br>
         При этом она не сразу подгружается сюда, а идет следующим маршрутом:
         <br>
-        1. Бухгалтер нажимает кнопку "Направить в 1С Управление"
+        1. Бухгалтер нажимает кнопку "Направить в 1С Управление" в 1С:Бухгалтерия
         <br>
         2. Все оплаты, 
     </p>
 
-
 </div>
+
+    <div id="b_content5" class="tab-content">
+        <table border="1">
+                <tr><th>ID</th><th>Сумма</th><th>Валюта</th><th>Контракт</th><th>Банк</th><th>Комментарий</th></tr>
+            <tr><td>BUUT-000115</td><td>1000</td><td>CNY</td><td>S-12345</td><td>ВТБ</td><td>Срочно</td></tr>
+            <tr><td>BUUT-000126</td><td>10 000</td><td>CNY</td><td>S-23452</td><td>ВТБ</td><td></td></tr>
+            <tr><td>BUUT-000127</td><td>50 000</td><td>EUR</td><td>S-45766</td><td>ОТП</td><td></td></tr>
+            <tr><td>BUUT-000138</td><td>100</td><td>EUR</td><td>S-12347</td><td>ОТП</td><td></td></tr>
+        </table>
+    </div>
+
+
     </div>
   </div>
 </div>
@@ -907,7 +921,7 @@ input[name="outerTabs"] + label {
       containerId: 'outerContentBuh',
       radioName: 'innerTabsBuh',
       contentPrefix: 'b',
-      count: 5
+      count: 6
     });
 
     addGeneratedLinks();
