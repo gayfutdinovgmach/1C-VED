@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles1.css">
+
+</head>
+<body>
+    <p>Логика формирования названия: Этап. [Статус] — Заказ [№ Заказа], Продавец: [Наименование], Поставщик: [Наименование], Заказчик: [Наименование]</p>
+    <h1>Производство. Создание проформы — Заказ POSP-000008, Продавец: Импорт Логистика, Поставщик: Emmepi Group, Заказчик: Л-ПАК.</h1>
+
+
+   <!-- Tabs -->
+<style>
+  .tabs {
+    margin-bottom: 12px;
+  }
+  .tab-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  .tab-btn {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    background: #f7f7f7;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+  .tab-btn.active {
+    background: #fff;
+    font-weight: 600;
+  }
+  .tab-panel {
+    display: none;
+  }
+  .tab-panel.active {
+    display: block;
+  }
+</style>
+
+<div class="tabs">
+  <div class="tab-buttons">
+    <button class="tab-btn active" type="button" data-tab="prep">Общая подготовка к отгрузке</button>
+    <button class="tab-btn" type="button" data-tab="customs">Таможенное описание</button>
+  </div>
+
+  <!-- Tab #1 -->
+  <div class="tab-panel active" id="tab-prep">
+    <!-- Тут будет контент первой вкладки -->
+    <p>Необходимо сделать чек-лист смешанного типа: это значит где-то можно поставить галочку (или выбрать "да" если с галочкой не реализовать), а где-то надо подгрузить файл.
+        Ниже я опишу где как надо.
+
+    <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Срок готовности</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Подгружен текущий срок готовности</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Дать возможность подгружать менять вручную. Если вносится изменение, пусть вкладка, через которую
+            этот статус отслеживают другие, например, снабженец подкрашивается красным, пока они ее не откроют или мб даже пока не кликнут на заказ, по которому изменился срок (
+                если так можно; если можно, тогда пусть он тоже, пока по нему не кликнули, будет красным).
+        </span>
+    </div>
+
+        Вот что нужно отметить в чек-листе:
+        <li>Коды ТНВЭД</li>
+        <li>Разрешительная документация</li>
+        <li>Честный Знак</li>
+        <li>Маркировка ЕАС</li>
+        <li>Маркировка Честный Знак</li>
+        <li>Разрешительная документация выпущена</li>
+    </p>
+
+
+                <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Фото</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Дать возможность подгружать много фото. При этом не является обязательным полем для заполнения.
+            Если сложно и непрактично в 1С реализовывать, дай знать, будем хранить в папках на сервере, а Фото перейдет в чек-лист.
+        </span>
+    </div>
+
+            <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Инвойс подписанный</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Подгружается итоговая версия документа. Формат: pdf. Другие не давать подгружать.
+            Обязателен (без подгруженного файла нельзя нажать "Далее").
+        </span>
+    </div>
+
+                <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Инвойс в редактируемом формате</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Опциональная подгрузка (можно нажать "Далее" без файла).</span>
+    </div>
+
+                <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Упаковочный лист подписанный</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Подгружается итоговая версия документа. Формат: pdf. Другие не давать подгружать.
+            Обязателен (без подгруженного файла нельзя нажать "Далее"). Но давай добавим галочку с текстом "Информация по упаковочному в инвойсе" и если галочка
+            отмечена, то упак листы (подписанный и редактируемый) можно НЕ подгружать.
+        </span>
+    </div>
+
+                <div class="field-container" style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="field-label" style="font-weight: bold; color: #303133;">Упаковочный лист в редактируемом формате</span>
+            <div class="supplier-badge" style="padding: 6px 12px; border: 1px solid #dcdfe6; border-radius: 4px; background-color: #f5f7fa; display: inline-block;">
+                <span id="calc-currency" class="supplier-name" style="font-weight: bold; color: #303133;">Окно для подгрузки</span>
+            </div>
+        </div>
+        <span class="field-value" style="color: #909399; font-size: 14px;">Опциональная подгрузка (можно нажать "Далее" без файла).</span>
+    </div>
+
+  </div>
+
+  <!-- Tab #2 -->
+  <div class="tab-panel" id="tab-customs">
+    <!-- таможенное описание -->
+    <div style="overflow-x: auto;">
+        <p>Хочу отметить тут важный момент: тут при привязке позиции к карточке товара может возникнуть следующая ситуация: у одной позиции, например Вал BHS, может быть несколько поставщиков.
+            Это потому, что BHS в названии - отсылка не к поставщику, а машине, на которую запчасть ставится. Поэтому один год это может поставлять BHS, а другой какой-нибудь 
+            XunHui. При этом меняться будет всего несколько параметров: Страна происхождения, Производитель, Торговая марка. Все остальное будет одинаковое. Можем обсудить, как это лучше реализовать.
+            Я думаю, основную инфу (неизменную) в карточке товара можно отправить на вкладку "Таможенное описание", а вот имзеняемую хз - либо туда же какими-то парами либо еще куда-то.
+            Например: BHS - Германия - Отсутствует (торговая марка), Xunhui - Китай - Отсутствует (торговая марка). Мб в виде какой-то таблицы?
+            <br>
+            <br>
+            Но в любом случае мы хотим иметь подробные карточки товара, куда будет входить таможенная информация отсюда + фото товара (могут подгуржаться как на этом этапе так и кладовщиком после приемки).
+        </p>
+      <table border="1">
+        <tr>
+          <th>Внутренний номер</th>
+          <th>Артикул Поставщика</th>
+          <th>Название англ.</th>
+          <th>Название русский</th>
+          <th>Производитель</th>
+          <th>Машина</th>
+          <th>Торговая марка</th>
+          <th>Страна происхождения</th>
+          <th>Материал</th>
+          <th>Функция</th>
+          <th>Принцип работы</th>
+          <th>Прочее</th>
+          <th>Код ТНВЭД</th>
+          <th>Пошлина %</th>
+          <th>НДС %</th>
+          <th>Сертификация наличие</th>
+          <th>Маркировка ЧЗ наличие</th>
+          <th>Фото</th>
+        </tr>
+
+        <tr>
+          <td>Подгружается автоматически вместе с запросом от снабженца из карточки номенклатуры.</td>
+          <td>Подгружается автоматически вместе с запросом от снабженца из карточки номенклатуры.</td>
+          <td>Подгружается автоматически вместе с запросом от снабженца из карточки номенклатуры.</td>
+          <td>Подгружается автоматически вместе с запросом от снабженца из карточки номенклатуры.</td>
+          <td>Подгружается автоматически вместе с запросом от снабженца.</td>
+          <td>Подгружается автоматически вместе с запросом от снабженца из карточки номенклатуры.</td>
+          <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки).</td>
+          <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки).</td>
+          <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки).</td>
+          <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки).</td>
+          <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки).</td>
+          <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки).</td>
+          <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки).</td>
+          <td>Указывается специалистом по ВЭД + можно подумать о подгрузке из файла (можно потом)</td>
+          <td>По умолчанию пусть подгружается 22%</td>
+          <td>Давай сделаем графу под номер документа и обязательную подгрузку файла. Если сертификации нет, ставим "Нет". Т.е. надо графу с выбором да/нет, и если да,
+            то уже ставим номер и подгружаем файл.
+          </td>
+          <td>Заполняется специалистом по ВЭД вручную (если по этому поставщику ранее уже инфа вносилась - подгружается из карточки) - тут да/нет.</td>
+          <td>Подгружается вручную, не является обязательным для заполнения. Можно подгружать больше 1. Удалять пусть можно будет из карточки товара.</td>
+        </tr>
+
+        <tr>
+          <td>S9MR34699</td>
+          <td>157896400</td>
+          <td>IDLE ROLL AF-P</td>
+          <td>Вал BHS (157896400)/AF-P</td>
+          <td>Horsebridge International Commerce Co., Ltd</td>
+          <td>BHS</td>
+          <td>Комментарий: в первый раз ячейка пустая, далее, например, специалист по ВЭД указывает "Отстуствует".</td>
+          <td>Комментарий: в первый раз ячейка пустая, далее, например, специалист по ВЭД указывает "Китай".</td>
+          <td>Комментарий: в первый раз ячейка пустая, далее, например, специалист по ВЭД указывает "Сталь".</td>
+          <td>Комментарий: в первый раз ячейка пустая, далее, например, специалист по ВЭД указывает"Регулировка площади контакта полотна бумаги с подогревателем".</td>
+          <td>Комментарий: в первый раз ячейка пустая, далее, например, специалист по ВЭД указывает"Путем прикосновения полотна к телу вала".</td>
+          <td></td>
+          <td>Допустим, код будет: "8439 99 000 0"</td>
+          <td>Для кода 8439 99 000 0 это: 0%</td>
+          <td>Для кода 8439 99 000 0 это: 22%. </td>
+          <td></td>
+          <td>Нет </td>
+          <td>окно для подгрузки</td>
+        </tr>
+
+        <tr>
+          <td>S9MR34699</td>
+          <td>157896400</td>
+          <td>IDLE ROLL AF-P</td>
+          <td>Вал BHS (157896400)/AF-P</td>
+          <td>Horsebridge International Commerce Co., Ltd</td>
+          <td>BHS</td>
+          <td>Отстуствует.</td>
+          <td>Китай</td>
+          <td>Сталь</td>
+          <td>Регулировка площади контакта полотна бумаги с подогревателем</td>
+          <td>Путем прикосновения полотна к телу вала.</td>
+          <td>Эта строка показывает, как будет выглядеть заполненный (обрабоатанный) специалистом по ВЭД вариант.</td>
+          <td>8439 99 000 0</td>
+          <td>0%</td>
+          <td>22%. </td>
+          <td>Нет</td>
+          <td>Нет </td>
+          <td>окно для подгрузки</td>
+        </tr>
+      </table>
+      <br>
+      <button>Выгрузить</button>
+    </div>
+  </div>
+</div>
+
+<!-- Далее button always visible -->
+<div style="margin-top: 16px;">
+  <button type="button" onclick="goNext()">Далее</button>
+</div>
+
+<script>
+  function goNext() {
+    // TODO: обработчик "Далее"
+    // Например: перейти на следующую страницу/сохранить данные/переключить вкладку
+    alert("Далее");
+  }
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      const tab = btn.getAttribute('data-tab');
+      document.getElementById('tab-' + tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

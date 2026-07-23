@@ -149,6 +149,8 @@ input[name="outerTabs"] + label {
           <tr><td><a href="./UT-000004.html">ГПUT-000004</a></td><td>Круглов Андрей</td><td>ППГК</td></tr>
       </table>
 
+      <p>Смотреть все 4 заказа (разные сценарии)</p>
+
       <div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
         <button type="button" id="calculate-btn" class="form-btn primary-btn">
           Обновить
@@ -163,6 +165,8 @@ input[name="outerTabs"] + label {
               <th>Продавец</th>
               <th>Поставщик</th>
               <th>Заказчик</th>
+              <th>Место доставки</th>
+              <th>Крайний срок доставки</th>
               <th>Статус</th>
               <th>Комментарий</th>
           </tr>
@@ -171,6 +175,8 @@ input[name="outerTabs"] + label {
               <td>НЕ ВЫБРАНО</td>
               <td>Emmepi Group</td>
               <td>Л-ПАК</td>
+              <td>Место доставки</td>
+              <td>Крайний срок доставки</td>
               <td>Выбрать документ и продавца</td>
               <td>Взять в работу после ответа Андрея</td>
           </tr>
@@ -179,6 +185,15 @@ input[name="outerTabs"] + label {
               <td>Godswill</td>
               <td>Godswill</td>
               <td>Алтайтара</td>
+              <td>Подтягивается из созданного Заказа клиента. 
+                <br>
+                Будет либо наш склад либо адрес заказчика.</td>
+              <td>Если заказчик = "Гофромашины Премиум",
+                <br> то значению "Доставить до", которое ставит снабженец.
+                <br>
+                В остальных случаях = срок из спецификации с заказчиком 
+                <br>минус 3 рабочих дня.
+              </td>
               <td>Создание контракта</td>
               <td></td>
           </tr>
@@ -187,6 +202,8 @@ input[name="outerTabs"] + label {
               <td>Horsebridge</td>
               <td>FAS</td>
               <td>Норма-Пак</td>
+              <td>Наш склад</td>
+              <td>10.08.2026</td>
               <td>Создание спецификации</td>
               <td></td>
           </tr>
@@ -195,6 +212,8 @@ input[name="outerTabs"] + label {
               <td>Chinese SME1</td>
               <td>Chinese SME1</td>
               <td>Нурек</td>
+              <td>Наш склад</td>
+              <td>11.09.2026</td>
               <td>Создание проформы</td>
               <td></td>
           </tr>
@@ -203,6 +222,8 @@ input[name="outerTabs"] + label {
               <td>Rodicut</td>
               <td>Rodicut</td>
               <td>Гофромашины Премиум</td>
+              <td>Наш склад</td>
+              <td>10.10.2026</td>
               <td>Оплата: отправить на оплату</td>
               <td>Когда заказчик - ГМП, это поставка на склад</td>
           </tr>
@@ -211,6 +232,8 @@ input[name="outerTabs"] + label {
               <td>Импорт Логистика</td>
               <td>Techno Engineering SRL</td>
               <td>ППГК</td>
+              <td>Наш склад</td>
+              <td>15.08.2026</td>
               <td>Оплата: в работе у бухаглтерии</td>
               <td></td>
           </tr>
@@ -219,17 +242,63 @@ input[name="outerTabs"] + label {
               <td>Полиграфснаб</td>
               <td>Venture</td>
               <td>Л-ПАК Кашира</td>
+              <td>Кашира, Улица дом.</td>
+              <td>25.08.2026</td>
               <td>Оплата: ушел в рейс</td>
               <td></td>
           </tr>
       </table>
+      <br>
+      <button>Обновить</button>
     </div>
 
     <div id="s_content3" class="tab-content">
       <table border="1">
-        <tr><th>Product</th><th>Price</th></tr>
-        <tr><td>Laptop</td><td>$1200</td></tr>
+          <tr>
+              <th>ID закупки</th>
+              <th>Продавец</th>
+              <th>Поставщик</th>
+              <th>Заказчик</th>
+              <th>Место доставки</th>
+              <th>Крайний срок доставки</th>
+              <th>Дата готовности</th>
+              <th>Комментарий</th>
+          </tr>
+          <tr style="background: orange;">
+              <td><a href="./POSP-000008.html">POSP-000008</a></td>
+              <td>Импорт Логистика</td>
+              <td>Emmepi Group</td>
+              <td>Л-ПАК</td>
+              <td>Наш склад</td>
+              <td>10.10.2026</td>
+              <td>Подгружается из графы "Срок поставки" у снабженца
+                <br> (выбирается самое большое значение из заказа)
+                <br> например, 27.07.2026
+                <br> сегодня 22.07.2026, поэтому выделяем строку</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>POSP-000009</td>
+              <td>Godswill</td>
+              <td>Godswill</td>
+              <td>Алтайтара</td>
+              <td>Барнаул</td>
+              <td>10.12.2026</td>
+              <td>20.09.2026</td>
+              <td></td>
+          </tr>
       </table>
+
+      <p>
+        Строка с POSP-000008 выделена оранжевым потому что на момент создания 22.07.2026 оставалось меньше 10 рабочих дней до даты готовности (27.07.2026)
+      </p>
+      <p>
+        Должна быть возможность выбрать несколько ID закупки (даже от разных поставщиков или продавцов) и нажать на кнопку "Сформировать единую отгрузку"
+      </p>
+
+      <button>Обновить</button>
+      <button>Сформировать единую отгрузку</button>
+
     </div>
 
     <div id="s_content4" class="tab-content">
@@ -413,21 +482,10 @@ input[name="outerTabs"] + label {
 <label for="b_tab0">Общий обзор задач</label>
 
 <input type="radio" name="innerTabsBuh" id="b_tab1">
-<label for="b_tab1">Оплатить</label>
+<label for="b_tab1">Оплаты заказов</label>
 
 <input type="radio" name="innerTabsBuh" id="b_tab2">
-<label for="b_tab2">Оплата ушла от нас</label>
-
-<input type="radio" name="innerTabsBuh" id="b_tab3">
-<label for="b_tab3">Оплата получена контрагентом</label>
-
-<input type="radio" name="innerTabsBuh" id="b_tab4">
-<label for="b_tab4">Оплата получена нами</label>
-
-<input type="radio" name="innerTabsBuh" id="b_tab5">
-<label for="b_tab5">Купить валюту</label>
-
-
+<label for="b_tab2">Купить валюту</label>
 
 <div id="b_content0" class="tab-content active">
     <table border="1">
@@ -443,7 +501,7 @@ input[name="outerTabs"] + label {
             <td>Воронина (столбец есть только у руководителей, у исполнителей тут отражаются только те задачи, по которым они ответственные)</td>
             <td>Круглов Андрей</td>
             <td>Л-ПАК</td>
-            <td><label for="b_tab1" class="tab-link">Оплатить</label></td>
+            <td><label for="b_tab1" class="tab-link">Оплаты</label></td>
         </tr>
         <tr>
             <td>UTNO-000001</td>
@@ -470,12 +528,24 @@ input[name="outerTabs"] + label {
 </div>
 
 <div id="b_content1" class="tab-content">
+    <p>
+        Бухгалтерия хочет видеть здесь всю базу данных по оплатам, при этом оплаты, которые еще не сделаны имеют статус "Оплатить" и должны быть вверху списка в хронологической
+        последовательности по дате поступления задачи на оплату.
+        <br>
+        Платежи, которые были оплачены имеют статус "Ушло от нас".
+        <br>
+        Платежи, которые ушли от нас и получены контрагентом имеют статус "Получено контрагентом" (проставляется после того, как отдел ВЭД нажимает на кнопку "Продавец получил оплату").
+        <br>
+        Платежи, которые получены контрагентом и полностью обработаны бухгалтерией имеют статус "Успешно завершен"
+    </p>
     <table border="1">
-        <tr><th>ID</th><th>Категория</th><th>Сумма</th><th>Валюта</th><th>Комментарий</th></tr>
-        <tr><td><a href="./BUUT-000001.html">ГПUT-000001</a></td><td>ВЭД</td><td>1000</td><td>USD</td><td>Срочная оплата</td></tr>
-        <tr><td>ГПUT-000002</td><td>ВЭД</td><td>10 000</td><td>USD</td><td></td></tr>
-        <tr><td>ГПUT-000003</td><td>ВЭД</td><td>50 000</td><td>USD</td><td></td></tr>
-        <tr><td>ГПUT-000004</td><td>ВЭД</td><td>100</td><td>USD</td><td></td></tr>
+        <tr><th>ID</th><th>Категория</th><th>Сумма</th><th>Валюта</th><th>Комментарий</th><th>Статус</th></tr>
+        <tr><td><a href="./BUUT-000001.html">ГПUT-000001</a></td><td>ВЭД</td><td>1000</td><td>USD</td><td>Срочная оплата</td><td>Оплатить</td></tr>
+        <tr><td>ГПUT-000002</td><td>ВЭД</td><td>10 000</td><td>USD</td><td></td><td>Оплатить</td></tr>
+        <tr><td>ГПUT-000003</td><td>ВЭД</td><td>50 000</td><td>USD</td><td></td><td>Оплатить</td></tr>
+        <tr><td>ГПUT-000011</td><td>ВЭД</td><td>100</td><td>USD</td><td></td><td>Ушло от нас</td></tr>
+        <tr><td>ГПUT-000012</td><td>ВЭД</td><td>100</td><td>USD</td><td></td><td>Получено контрагентом</td></tr>
+        <tr><td>ГПUT-000004</td><td>ВЭД</td><td>100</td><td>USD</td><td></td><td>Успешно завершен</td></tr>
     </table>
 
     <div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
@@ -489,45 +559,25 @@ input[name="outerTabs"] + label {
 
 <div id="b_content2" class="tab-content">
     <table border="1">
-              <tr><th>ID</th><th>Категория</th><th>Сумма</th><th>Валюта</th><th>Комментарий</th></tr>
-        <tr><td>BUUT-000009</td><td>ВЭД</td><td>1000</td><td>USD</td><td>Срочная оплата</td></tr>
-        <tr><td>BUUT-000010</td><td>ВЭД</td><td>10 000</td><td>USD</td><td></td></tr>
-        <tr><td>BUUT-000011</td><td>ВЭД</td><td>50 000</td><td>USD</td><td></td></tr>
-        <tr><td>BUUT-000012</td><td>ВЭД</td><td>100</td><td>USD</td><td></td></tr>
-    </table>
-</div>
+        <tr><th>ID</th><th>Сумма</th><th>Валюта</th><th>Курс</th><th>Банк</th><th>Комментарий</th></tr>
+        <tr><td>BUUT-000115</td><td>1000</td><td>CNY</td><td>13.1342</td><td>ВТБ</td><td>Срочно</td></tr>
+        <tr><td>BUUT-000126</td><td>10 000</td><td>CNY</td><td>12.99</td><td>ВТБ</td><td></td></tr>
+        <tr><td>BUUT-000127</td><td>50 000</td><td>EUR</td><td>89.2312</td><td>ОТП</td><td></td></tr>
+        <tr><td>BUUT-000138</td><td>100</td><td>EUR</td><td>89.4333</td><td>ОТП</td><td></td></tr>
+     </table>
 
-<div id="b_content3" class="tab-content">
-    <table border="1">
-              <tr><th>ID</th><th>Категория</th><th>Сумма</th><th>Валюта</th><th>Комментарий</th></tr>
-        <tr><td>BUUT-000005</td><td>ВЭД</td><td>1000</td><td>USD</td><td>Срочная оплата</td></tr>
-        <tr><td>BUUT-000006</td><td>ВЭД</td><td>10 000</td><td>USD</td><td></td></tr>
-        <tr><td>BUUT-000007</td><td>ВЭД</td><td>50 000</td><td>USD</td><td></td></tr>
-        <tr><td>BUUT-000008</td><td>ВЭД</td><td>100</td><td>USD</td><td></td></tr>
-    </table>
-</div>
-
-<div id="b_content4" class="tab-content">
-    <p>Нужно сделать кнопку в 1С Бухгалтерия, чтобы оттуда сюда выгружалась информация.
-        <br>
-        При этом она не сразу подгружается сюда, а идет следующим маршрутом:
-        <br>
-        1. Бухгалтер нажимает кнопку "Направить в 1С Управление" в 1С:Бухгалтерия
-        <br>
-        2. Все оплаты, 
+    <p>Необходимо в таблицу выше добавить либо столбец, где можно галочками выделять строки и под таблицей кнопку купили, либо на каждой строке кнопку купили.
+    Идея в том, что бухгалтерия должна отмечать то, где валюту купили. После этого строка исчезает из этого списка, курс покупки валоты сохраняется в базе, потом он будет использован при расчете себестоимости.
     </p>
 
+    <div class="button-row" style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+        <button type="button" id="calculate-btn" class="form-btn primary-btn">
+          Купили
+        </button>
+    </div>
 </div>
 
-    <div id="b_content5" class="tab-content">
-        <table border="1">
-                <tr><th>ID</th><th>Сумма</th><th>Валюта</th><th>Контракт</th><th>Банк</th><th>Комментарий</th></tr>
-            <tr><td>BUUT-000115</td><td>1000</td><td>CNY</td><td>S-12345</td><td>ВТБ</td><td>Срочно</td></tr>
-            <tr><td>BUUT-000126</td><td>10 000</td><td>CNY</td><td>S-23452</td><td>ВТБ</td><td></td></tr>
-            <tr><td>BUUT-000127</td><td>50 000</td><td>EUR</td><td>S-45766</td><td>ОТП</td><td></td></tr>
-            <tr><td>BUUT-000138</td><td>100</td><td>EUR</td><td>S-12347</td><td>ОТП</td><td></td></tr>
-        </table>
-    </div>
+
 
 
     </div>
@@ -921,7 +971,7 @@ input[name="outerTabs"] + label {
       containerId: 'outerContentBuh',
       radioName: 'innerTabsBuh',
       contentPrefix: 'b',
-      count: 6
+      count: 3
     });
 
     addGeneratedLinks();
